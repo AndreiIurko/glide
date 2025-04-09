@@ -123,12 +123,12 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     while (app2SegmentLength > 0) {
       byte[] app2Data = byteArrayPool.get(app2SegmentLength, byte[].class);
       try {
-        boolean hasJpegMpfPreamble = hasJpegMpfPreamble(reader, app2Data, app2SegmentLength);
+        boolean hasJpegMpfPreamble = hasJpegMpfPreamble(reader, null, app2SegmentLength);
         if (hasJpegMpfPreamble) {
           return true;
         }
       } finally {
-        byteArrayPool.put(app2Data);
+        byteArrayPool.put(null);
       }
       app2SegmentLength = moveToApp2SegmentAndGetLength(reader);
     }
@@ -167,9 +167,6 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
           return alpha >= 3 ? PNG_A : PNG;
         } catch (Reader.EndOfFileException e) {
           // TODO(b/143917798): Re-enable this logging when dependent tests are fixed.
-          // if (Log.isLoggable(TAG, Log.ERROR)) {
-          //   Log.e(TAG, "Unexpected EOF, assuming no alpha", e);
-          // }
           return PNG;
         }
       }
@@ -214,16 +211,13 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
       return ImageType.WEBP;
     } catch (Reader.EndOfFileException e) {
       // TODO(b/143917798): Re-enable this logging when dependent tests are fixed.
-      // if (Log.isLoggable(TAG, Log.ERROR)) {
-      //   Log.e(TAG, "Unexpected EOF", e);
-      // }
       return UNKNOWN;
     }
   }
 
   /**
    * Check if the bits look like an AVIF Image. AVIF Specification:
-   * https://aomediacodec.github.io/av1-avif/
+   * <a href="https://aomediacodec.github.io/av1-avif/">...</a>
    *
    * @return AVIF or ANIMATED_AVIF if the first few bytes look like it could be an AVIF Image or an
    *     animated AVIF Image respectively, UNKNOWN otherwise.
@@ -288,16 +282,13 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
 
         byte[] exifData = byteArrayPool.get(exifSegmentLength, byte[].class);
         try {
-          return parseExifSegment(reader, exifData, exifSegmentLength);
+          return parseExifSegment(reader, null, exifSegmentLength);
         } finally {
-          byteArrayPool.put(exifData);
+          byteArrayPool.put(null);
         }
       }
     } catch (Reader.EndOfFileException e) {
       // TODO(b/143917798): Re-enable this logging when dependent tests are fixed.
-      // if (Log.isLoggable(TAG, Log.ERROR)) {
-      //   Log.e(TAG, "Unexpected EOF", e);
-      // }
       return UNKNOWN_ORIENTATION;
     }
   }

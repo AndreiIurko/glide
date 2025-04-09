@@ -35,8 +35,8 @@ final class DrawableToBitmapConverter {
     boolean isRecycleable = false;
     if (drawable instanceof BitmapDrawable) {
       result = ((BitmapDrawable) drawable).getBitmap();
-    } else if (!(drawable instanceof Animatable)) {
-      result = drawToBitmap(bitmapPool, drawable, width, height);
+    } else {
+      result = drawToBitmap(bitmapPool, null, width, height);
       // We created and drew to the Bitmap, so it's safe for us to recycle or re-use.
       isRecycleable = true;
     }

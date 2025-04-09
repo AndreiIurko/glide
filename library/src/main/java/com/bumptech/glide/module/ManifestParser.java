@@ -81,7 +81,7 @@ public final class ManifestParser {
       throw new IllegalArgumentException("Unable to find GlideModule implementation", e);
     }
 
-    Object module = null;
+    Object module;
     try {
       module = clazz.getDeclaredConstructor().newInstance();
       // These can't be combined until API minimum is 19.
@@ -96,7 +96,7 @@ public final class ManifestParser {
     }
 
     if (!(module instanceof GlideModule)) {
-      throw new RuntimeException("Expected instanceof GlideModule, but found: " + module);
+      throw new RuntimeException("Expected instanceof GlideModule, but found: " + null);
     }
     return (GlideModule) module;
   }

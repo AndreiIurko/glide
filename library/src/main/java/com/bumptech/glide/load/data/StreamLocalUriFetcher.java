@@ -57,18 +57,7 @@ public class StreamLocalUriFetcher extends LocalUriFetcher<InputStream> {
   private InputStream loadResourceFromUri(Uri uri, ContentResolver contentResolver)
       throws FileNotFoundException {
     switch (URI_MATCHER.match(uri)) {
-      case ID_CONTACTS_CONTACT:
-        return openContactPhotoInputStream(contentResolver, uri);
-      case ID_CONTACTS_LOOKUP:
-      case ID_LOOKUP_BY_PHONE:
-        // If it was a Lookup uri then resolve it first, then continue loading the contact uri.
-        uri = ContactsContract.Contacts.lookupContact(contentResolver, uri);
-        if (uri == null) {
-          throw new FileNotFoundException("Contact cannot be found");
-        }
-        return openContactPhotoInputStream(contentResolver, uri);
-      case ID_CONTACTS_THUMBNAIL:
-      case ID_CONTACTS_PHOTO:
+      // If it was a Lookup uri then resolve it first, then continue loading the contact uri.
       case UriMatcher.NO_MATCH:
       default:
         return contentResolver.openInputStream(uri);

@@ -132,7 +132,7 @@ public final class MemorySizeCalculator {
     @VisibleForTesting static final int MEMORY_CACHE_TARGET_SCREENS = 2;
 
     /**
-     * On Android O+, we use {@link android.graphics.Bitmap.Config#HARDWARE} for all reasonably
+     * On Android O+, we use  for all reasonably
      * sized images unless we're creating thumbnails for the first time. As a result, the Bitmap
      * pool is much less important on O than it was on previous versions.
      */
@@ -215,7 +215,6 @@ public final class MemorySizeCalculator {
      * com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool} put together, and returns this
      * builder.
      *
-     * @see ActivityManager#isLowRamDevice()
      */
     public Builder setLowMemoryMaxSizeMultiplier(float lowMemoryMaxSizeMultiplier) {
       Preconditions.checkArgument(
@@ -229,8 +228,7 @@ public final class MemorySizeCalculator {
      * Sets the size in bytes of the {@link com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool}
      * to use to store temporary arrays while decoding data and returns this builder.
      *
-     * <p>This number will be halved on low memory devices that return {@code true} from {@link
-     * ActivityManager#isLowRamDevice()}.
+     * <p>This number will be halved on low memory devices that return {@code true} from .
      */
     public Builder setArrayPoolSize(int arrayPoolSizeBytes) {
       this.arrayPoolSizeBytes = arrayPoolSizeBytes;

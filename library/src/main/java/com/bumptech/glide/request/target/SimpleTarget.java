@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import com.bumptech.glide.util.Util;
 
 /**
- * A simple {@link com.bumptech.glide.request.target.Target} base class with default (usually no-op)
+ * A simple {@link Target} base class with default (usually no-op)
  * implementations of non essential methods that allows the caller to specify an exact width/height.
  * Typically use cases look something like this:
  *
@@ -59,7 +59,7 @@ import com.bumptech.glide.util.Util;
  * @param <Z> The type of resource that this target will receive.
  * @deprecated Use {@link CustomViewTarget} if loading the content into a view, the download API if
  *     in the background
- *     (http://bumptech.github.io/glide/doc/getting-started.html#background-threads), or a {@link
+ *     (<a href="http://bumptech.github.io/glide/doc/getting-started.html#background-threads">...</a>), or a {@link
  *     CustomTarget} for any specialized use-cases. Using {@link SimpleTarget} or {@link BaseTarget}
  *     is unsafe if the user does not implement {@link #onLoadCleared}, resulting in recycled
  *     bitmaps being referenced from the UI and hard to root-cause crashes.

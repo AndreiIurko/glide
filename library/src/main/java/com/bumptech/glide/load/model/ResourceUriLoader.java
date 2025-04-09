@@ -33,8 +33,7 @@ import java.util.List;
  */
 public final class ResourceUriLoader<DataT> implements ModelLoader<Uri, DataT> {
   /**
-   * See the javadoc on {@link android.content.res.Resources#getIdentifier(java.lang.String,
-   * java.lang.String, java.lang.String)}.
+   * See the javadoc on .
    */
   private static final int INVALID_RESOURCE_ID = 0;
 

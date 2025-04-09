@@ -20,8 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Loads themed resource ids using {@link Resources#openRawResource(int)} or {@link
- * Resources#openRawResourceFd(int)} using the theme from {@link ResourceDrawableDecoder#THEME} when
+ * Loads themed resource ids using  or  using the theme from {@link ResourceDrawableDecoder#THEME} when
  * it's available.
  *
  * <p>Resource ids from other packages are handled by {@link ResourceLoader} via {@link

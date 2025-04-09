@@ -233,10 +233,6 @@ class DecodeJob<R>
         return;
       }
       runWrapped();
-    } catch (CallbackException e) {
-      // If a callback not controlled by Glide throws an exception, we should avoid the Glide
-      // specific debug logic below.
-      throw e;
     } catch (Throwable t) {
       // Catch Throwable and not Exception to handle OOMs. Throwables are swallowed by our
       // usage of .submit() in GlideExecutor so we're not silently hiding crashes by doing this. We
@@ -516,9 +512,6 @@ class DecodeJob<R>
 
     // If allow hardware config is defined, we can use it if it's set to false or if it's safe to
     // use the hardware config for the request.
-    if (isHardwareConfigAllowed != null && (!isHardwareConfigAllowed || isHardwareConfigSafe)) {
-      return options;
-    }
 
     // If allow hardware config is undefined or is set to true but it's unsafe for us to use the
     // hardware config for this request, we need to override the config.

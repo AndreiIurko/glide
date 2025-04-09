@@ -9,7 +9,7 @@ import java.security.MessageDigest;
  * A Glide {@link BitmapTransformation} to circle crop an image. Behaves similar to a {@link
  * FitCenter} transform, but the resulting image is masked to a circle.
  *
- * <p>Uses a PorterDuff blend mode, see http://ssp.impulsetrain.com/porterduff.html.
+ * <p>Uses a PorterDuff blend mode, see <a href="http://ssp.impulsetrain.com/porterduff.html">...</a>.
  */
 public class CircleCrop extends BitmapTransformation {
   // The version of this transformation, incremented to correct an error in a previous version.

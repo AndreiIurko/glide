@@ -69,7 +69,7 @@ public final class MainActivity extends AppCompatActivity {
     fetchImagesObservable.unsubscribeOn(AndroidSchedulers.mainThread());
   }
 
-  private final class ImgurImageAdapter extends RecyclerView.Adapter<ViewHolder> {
+  private static final class ImgurImageAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<Image> images = Collections.emptyList();
 

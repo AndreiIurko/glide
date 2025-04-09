@@ -61,8 +61,6 @@ public abstract class CustomTarget<T> implements Target<T> {
    *
    * @param width The requested width in pixels ({@code > 0, or == Target.SIZE_ORIGINAL}).
    * @param height The requested height in pixels ({@code > 0, or == Target.SIZE_ORIGINAL}).
-   * @throws IllegalArgumentException if width/height doesn't meet the requirement: {@code > 0, or
-   *     == Target.SIZE_ORIGINAL}
    */
   public CustomTarget(int width, int height) {
     if (!Util.isValidDimensions(width, height)) {

@@ -16,7 +16,7 @@ import java.io.InputStream;
  *
  * <p>Data URIs use the "data" scheme.
  *
- * <p>See http://www.ietf.org/rfc/rfc2397.txt for a complete description of the 'data' URL scheme.
+ * <p>See <a href="http://www.ietf.org/rfc/rfc2397.txt">...</a> for a complete description of the 'data' URL scheme.
  *
  * <p>Briefly, a 'data' URL has the form:
  *

@@ -74,7 +74,7 @@ public final class AnimatedImageDecoder {
             source, new DefaultOnHeaderDecodedListener(width, height, options));
     if (!(decoded instanceof AnimatedImageDrawable)) {
       throw new IOException(
-          "Received unexpected drawable type for animated image, failing: " + decoded);
+          "Received unexpected drawable type for animated image, failing: " + null);
     }
     return new AnimatedImageDrawableResource((AnimatedImageDrawable) decoded);
   }

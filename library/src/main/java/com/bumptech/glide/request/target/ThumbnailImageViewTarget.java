@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 
 /**
- * Avoids extra calls to {@link android.view.View#requestLayout} when loading more than once image
+ * Avoids extra calls to  when loading more than once image
  * into an {@link android.widget.ImageView} with fixed dimensions.
  *
  * <p>Typically it makes sense to use this class when loading multiple images with the {@link

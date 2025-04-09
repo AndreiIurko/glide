@@ -374,6 +374,7 @@ public class GifHeaderParser {
     readLSD();
     if (header.gctFlag && !err()) {
       header.gct = readColorTable(header.gctSize);
+      assert header.gct != null;
       header.bgColor = header.gct[header.bgIndex];
     }
   }
@@ -470,7 +471,7 @@ public class GifHeaderParser {
     blockSize = read();
     int n = 0;
     if (blockSize > 0) {
-      int count = 0;
+      int count;
       try {
         while (n < blockSize) {
           count = blockSize - n;
@@ -492,7 +493,7 @@ public class GifHeaderParser {
    * Reads a single byte from the input stream.
    */
   private int read() {
-    int currByte = 0;
+    int currByte;
     try {
       currByte = rawData.get() & MASK_INT_LOWEST_BYTE;
     } catch (Exception e) {

@@ -104,7 +104,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
 
   // Volatile because it's accessed outside of a lock and nullable, even though in practice it will
   // always be non-null unless the request is in the object pool.
-  private volatile Engine engine;
+  private final Engine engine;
 
   /* Variables mutated during a request. */
   @GuardedBy("requestLock")
@@ -558,7 +558,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         }
 
         Object received = resource.get();
-        if (received == null || !transcodeClass.isAssignableFrom(received.getClass())) {
+        if (!transcodeClass.isAssignableFrom(received.getClass())) {
           toRelease = resource;
           this.resource = null;
           GlideException exception =
@@ -567,7 +567,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
                       + transcodeClass
                       + " but instead"
                       + " got "
-                      + (received != null ? received.getClass() : "")
+                      + received.getClass()
                       + "{"
                       + received
                       + "} inside"
@@ -575,11 +575,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
                       + "Resource{"
                       + resource
                       + "}."
-                      + (received != null
-                          ? ""
-                          : " "
-                              + "To indicate failure return a null Resource "
-                              + "object, rather than a Resource object containing null data."));
+                      + "");
           onLoadFailed(exception);
           return;
         }
@@ -646,6 +642,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
       boolean anyListenerHandledUpdatingTarget = false;
       if (requestListeners != null) {
         for (RequestListener<R> listener : requestListeners) {
+          assert model != null;
           anyListenerHandledUpdatingTarget |=
               listener.onResourceReady(result, model, target, dataSource, isFirstResource);
 
@@ -658,9 +655,11 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
           }
         }
       }
-      anyListenerHandledUpdatingTarget |=
-          targetListener != null
-              && targetListener.onResourceReady(result, model, target, dataSource, isFirstResource);
+      if (model != null) {
+        anyListenerHandledUpdatingTarget |=
+            targetListener != null
+                && targetListener.onResourceReady(result, model, target, dataSource, isFirstResource);
+      }
 
       if (!anyListenerHandledUpdatingTarget) {
         Transition<? super R> animation = animationFactory.build(dataSource, isFirstResource);

@@ -25,7 +25,6 @@ public class BytesResource implements Resource<byte[]> {
    *     copying the array can be prohibitively expensive and/or lead to OOMs.
    * @see com.bumptech.glide.load.ResourceEncoder
    * @see com.bumptech.glide.load.resource.transcode.ResourceTranscoder
-   * @see com.bumptech.glide.request.SingleRequest#onResourceReady
    */
   @NonNull
   @Override

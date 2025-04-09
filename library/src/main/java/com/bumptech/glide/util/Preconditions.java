@@ -40,6 +40,7 @@ public final class Preconditions {
     if (TextUtils.isEmpty(string)) {
       throw new IllegalArgumentException("Must not be null or empty");
     }
+    assert string != null;
     return string;
   }
 

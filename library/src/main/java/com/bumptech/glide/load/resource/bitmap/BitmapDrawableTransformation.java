@@ -42,11 +42,7 @@ public class BitmapDrawableTransformation implements Transformation<BitmapDrawab
   @SuppressWarnings("unchecked")
   private static Resource<BitmapDrawable> convertToBitmapDrawableResource(
       Resource<Drawable> resource) {
-    if (!(resource.get() instanceof BitmapDrawable)) {
-      throw new IllegalArgumentException(
-          "Wrapped transformation unexpectedly returned a non BitmapDrawable resource: "
-              + resource.get());
-    }
+    resource.get();
     return (Resource<BitmapDrawable>) (Resource<?>) resource;
   }
 

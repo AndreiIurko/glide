@@ -6,8 +6,7 @@ import android.view.animation.Animation;
 
 /**
  * A {@link Transition} that can apply a {@link android.view.animation.Animation Animation} to a
- * {@link android.view.View View} using {@link
- * android.view.View#startAnimation(android.view.animation.Animation)}.
+ * {@link android.view.View View} using .
  *
  * @param <R> The type of the resource that will be transitioned into a view.
  */
@@ -24,10 +23,8 @@ public class ViewTransition<R> implements Transition<R> {
   }
 
   /**
-   * Always clears the current animation on the view using {@link
-   * android.view.View#clearAnimation()}, then starts the {@link android.view.animation.Animation}
-   * given in the constructor using {@link
-   * android.view.View#startAnimation(android.view.animation.Animation)} and then returns {@code
+   * Always clears the current animation on the view using , then starts the {@link android.view.animation.Animation}
+   * given in the constructor using  and then returns {@code
    * false} because the animation does not actually put the current resource on the view.
    *
    * @param current {@inheritDoc}

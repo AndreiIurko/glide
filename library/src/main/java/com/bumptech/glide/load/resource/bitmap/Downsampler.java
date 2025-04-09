@@ -50,7 +50,7 @@ public final class Downsampler {
   /**
    * Indicates the {@link com.bumptech.glide.load.DecodeFormat} that will be used in conjunction
    * with the image format to determine the {@link android.graphics.Bitmap.Config} to provide to
-   * {@link android.graphics.BitmapFactory.Options#inPreferredConfig} when decoding the image.
+   *  when decoding the image.
    */
   public static final Option<DecodeFormat> DECODE_FORMAT =
       Option.memory(
@@ -92,16 +92,14 @@ public final class Downsampler {
       Option.memory("com.bumptech.glide.load.resource.bitmap.Downsampler.FixBitmapSize", false);
 
   /**
-   * Indicates that it's safe or unsafe to decode {@link Bitmap}s with {@link
-   * Bitmap.Config#HARDWARE}.
+   * Indicates that it's safe or unsafe to decode {@link Bitmap}s with .
    *
    * <p>Callers should almost never set this value to {@code true} manually. Glide will already do
    * so when Glide believes it's safe to do (when no transformations are applied). Instead, callers
    * can set this value to {@code false} to prevent Glide from decoding hardware bitmaps if Glide is
    * unable to detect that hardware bitmaps are unsafe. For example, you should set this to {@code
    * false} if you plan to draw it to a software {@link android.graphics.Canvas} or if you plan to
-   * inspect the {@link Bitmap}s pixels with {@link Bitmap#getPixel(int, int)} or {@link
-   * Bitmap#getPixels(int[], int, int, int, int, int, int)}.
+   * inspect the {@link Bitmap}s pixels with  or .
    *
    * <p>Callers can disable hardware {@link Bitmap}s for all loads using {@link
    * com.bumptech.glide.GlideBuilder#setDefaultRequestOptions(RequestOptions)}.
@@ -273,7 +271,7 @@ public final class Downsampler {
       throws IOException {
     byte[] bytesForOptions = byteArrayPool.get(ArrayPool.STANDARD_BUFFER_SIZE_BYTES, byte[].class);
     BitmapFactory.Options bitmapFactoryOptions = getDefaultOptions();
-    bitmapFactoryOptions.inTempStorage = bytesForOptions;
+    bitmapFactoryOptions.inTempStorage = null;
 
     DecodeFormat decodeFormat = options.get(DECODE_FORMAT);
     PreferredColorSpace preferredColorSpace = options.get(PREFERRED_COLOR_SPACE);
@@ -298,7 +296,7 @@ public final class Downsampler {
       return BitmapResource.obtain(result, bitmapPool);
     } finally {
       releaseOptions(bitmapFactoryOptions);
-      byteArrayPool.put(bytesForOptions);
+      byteArrayPool.put(null);
     }
   }
 
@@ -740,8 +738,7 @@ public final class Downsampler {
    * A method for getting the dimensions of an image from the given InputStream.
    *
    * @param imageReader The {@link ImageReader} representing the image.
-   * @param options The options to pass to {@link BitmapFactory#decodeStream(java.io.InputStream,
-   *     android.graphics.Rect, android.graphics.BitmapFactory.Options)}.
+   * @param options The options to pass to .
    * @return an array containing the dimensions of the image in the form {width, height}.
    */
   private static int[] getDimensions(

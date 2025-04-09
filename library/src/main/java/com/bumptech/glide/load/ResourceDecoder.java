@@ -51,12 +51,6 @@ public interface ResourceDecoder<T, Z> {
    *     keys is present, it's value is non-null and is of the expected type.
    * @throws IOException typically only if the {@code source} ({@link java.io.InputStream}, {@link
    *     android.os.ParcelFileDescriptor} etc) throws while being read.
-   * @throws OutOfMemoryError is sometimes thrown if the the request produces an overly large result
-   *     due to some combination of source size, requested size, source format and requested format.
-   *     Callers do/must handle this error and implementations can throw this error.
-   * @throws RuntimeException is thrown by a variety of decoding libraries, including various
-   *     Android libraries. Callers do/must handle this error and implementations can throw this
-   *     exception or, preferably, more detailed subclasses.
    */
   @Nullable
   Resource<Z> decode(@NonNull T source, int width, int height, @NonNull Options options)

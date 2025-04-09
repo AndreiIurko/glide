@@ -55,7 +55,7 @@ public class GifDrawable extends Drawable
   /**
    * True if the drawable is currently visible. Default to true because on certain platforms (at
    * least 4.1.1), setVisible is not called on {@link android.graphics.drawable.Drawable Drawables}
-   * during {@link android.widget.ImageView#setImageDrawable(android.graphics.drawable.Drawable)}.
+   * during .
    * See issue #130.
    */
   private boolean isVisible = true;
@@ -327,7 +327,7 @@ public class GifDrawable extends Drawable
     while (callback instanceof Drawable) {
       callback = ((Drawable) callback).getCallback();
     }
-    return callback;
+    return null;
   }
 
   @Override
@@ -404,9 +404,6 @@ public class GifDrawable extends Drawable
    */
   @Override
   public void registerAnimationCallback(@NonNull AnimationCallback animationCallback) {
-    if (animationCallback == null) {
-      return;
-    }
     if (animationCallbacks == null) {
       animationCallbacks = new ArrayList<>();
     }
@@ -415,7 +412,7 @@ public class GifDrawable extends Drawable
 
   @Override
   public boolean unregisterAnimationCallback(@NonNull AnimationCallback animationCallback) {
-    if (animationCallbacks == null || animationCallback == null) {
+    if (animationCallbacks == null) {
       return false;
     }
     return animationCallbacks.remove(animationCallback);

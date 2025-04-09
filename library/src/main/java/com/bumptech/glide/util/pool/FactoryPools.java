@@ -116,7 +116,7 @@ public final class FactoryPools {
   @NonNull
   private static <T extends Poolable> Pool<T> build(
       @NonNull Pool<T> pool, @NonNull Factory<T> factory) {
-    return build(pool, factory, FactoryPools.<T>emptyResetter());
+    return build(pool, factory, FactoryPools.emptyResetter());
   }
 
   @NonNull

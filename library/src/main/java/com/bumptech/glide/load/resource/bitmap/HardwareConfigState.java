@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * State and constants for interacting with {@link android.graphics.Bitmap.Config#HARDWARE} on
+ * State and constants for interacting with  on
  * Android O+.
  */
 public final class HardwareConfigState {
@@ -39,7 +39,7 @@ public final class HardwareConfigState {
    * Allows us to check to make sure we're not exceeding the FD limit for a process with hardware
    * {@link Bitmap}s.
    *
-   * <p>{@link Bitmap.Config#HARDWARE} {@link Bitmap}s require two FDs (depending on the driver).
+   * <p> {@link Bitmap}s require two FDs (depending on the driver).
    * Processes have an FD limit of 1024 (at least on O). With sufficiently small {@link Bitmap}s
    * and/or a sufficiently large {@link com.bumptech.glide.load.engine.cache.MemoryCache}, we can
    * end up with enough {@link Bitmap}s in memory that we blow through the FD limit, which causes
@@ -82,7 +82,7 @@ public final class HardwareConfigState {
    * Only mutated on the main thread. Read by any number of background threads concurrently.
    *
    * <p>Defaults to {@code false} because we need to wait for the GL context to be initialized and
-   * it defaults to not initialized (https://b.corp.google.com/issues/126573603#comment12).
+   * it defaults to not initialized (<a href="https://b.corp.google.com/issues/126573603#comment12">...</a>).
    */
   private final AtomicBoolean isHardwareConfigAllowedByAppState = new AtomicBoolean(false);
 

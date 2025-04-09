@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.HashSet;
 
-/** A java wrapper for Giphy's http api based on https://github.com/Giphy/GiphyAPI. */
+/** A java wrapper for Giphy's http api based on <a href="https://github.com/Giphy/GiphyAPI">...</a>. */
 public final class Api {
   private static volatile Api api = null;
   private static final String BETA_KEY = "dc6zaTOxFJmzC";

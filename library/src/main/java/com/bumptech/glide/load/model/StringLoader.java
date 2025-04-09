@@ -12,7 +12,7 @@ import java.io.InputStream;
 
 /**
  * A model loader for handling certain string models. Handles paths, urls, and any uri string with a
- * scheme handled by {@link android.content.ContentResolver#openInputStream(Uri)}.
+ * scheme handled by .
  *
  * @param <Data> The type of data that will be loaded from the given {@link java.lang.String}.
  */

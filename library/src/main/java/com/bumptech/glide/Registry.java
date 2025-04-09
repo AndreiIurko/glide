@@ -486,7 +486,6 @@ public class Registry {
       // It's possible there is no way to decode or transcode to the desired types from a given
       // data class.
       if (decodePaths.isEmpty()) {
-        result = null;
       } else {
         result =
             new LoadPath<>(

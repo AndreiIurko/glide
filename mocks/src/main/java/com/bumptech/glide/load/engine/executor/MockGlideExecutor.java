@@ -102,9 +102,6 @@ public final class MockGlideExecutor {
           }
         }
       } finally {
-        if (interrupted) {
-          Thread.currentThread().interrupt();
-        }
       }
       return future;
     }

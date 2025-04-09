@@ -40,7 +40,7 @@ public final class Option<T> {
    * value.
    *
    * @param key A unique package prefixed {@link String} that identifies this option (must be stable
-   *     across builds, so {@link Class#getName()} should <em>not</em> be used).
+   *     across builds, so  should <em>not</em> be used).
    */
   @NonNull
   public static <T> Option<T> memory(@NonNull String key) {
@@ -52,11 +52,11 @@ public final class Option<T> {
    * default value.
    *
    * @param key A unique package prefixed {@link String} that identifies this option (must be stable
-   *     across builds, so {@link Class#getName()} should <em>not</em> be used).
+   *     across builds, so  should <em>not</em> be used).
    */
   @NonNull
   public static <T> Option<T> memory(@NonNull String key, @NonNull T defaultValue) {
-    return new Option<>(key, defaultValue, Option.<T>emptyUpdater());
+    return new Option<>(key, defaultValue, Option.emptyUpdater());
   }
 
   /**
@@ -64,7 +64,7 @@ public final class Option<T> {
    * com.bumptech.glide.load.Option.CacheKeyUpdater} to update disk cache keys.
    *
    * @param key A unique package prefixed {@link String} that identifies this option (must be stable
-   *     across builds, so {@link Class#getName()} should <em>not</em> be used).
+   *     across builds, so  should <em>not</em> be used).
    */
   @NonNull
   public static <T> Option<T> disk(
@@ -78,7 +78,7 @@ public final class Option<T> {
    * given value as the default value.
    *
    * @param key A unique package prefixed {@link String} that identifies this option (must be stable
-   *     across builds, so {@link Class#getName()} should <em>not</em> be used).
+   *     across builds, so  should <em>not</em> be used).
    */
   @NonNull
   public static <T> Option<T> disk(
@@ -158,12 +158,10 @@ public final class Option<T> {
      * class and use {@link Option#memory(String)} or {@link Option#memory(String, Object)} instead.
      *
      * @param keyBytes The bytes of the {@link String} used as the key for this particular {@link
-     *     Option}. Should be added to the {@code messageDigest} using {@link
-     *     MessageDigest#update(byte[])} by all implementations if the digest is updated with the
+     *     Option}. Should be added to the {@code messageDigest} using  by all implementations if the digest is updated with the
      *     given {@code value} parameter.
      * @param value The value of of this particular option. Typically you should convert the value
-     *     to a byte array using some stable mechanism and then call {@link
-     *     MessageDigest#update(byte[])} to update the given digest.
+     *     to a byte array using some stable mechanism and then call  to update the given digest.
      */
     void update(@NonNull byte[] keyBytes, @NonNull T value, @NonNull MessageDigest messageDigest);
   }

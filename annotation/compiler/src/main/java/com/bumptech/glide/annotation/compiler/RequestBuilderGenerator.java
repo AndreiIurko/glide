@@ -398,7 +398,7 @@ final class RequestBuilderGenerator {
             .build());
 
     for (AnnotationMirror mirror : methodToOverride.getAnnotationMirrors()) {
-      builder = builder.addAnnotation(AnnotationSpec.get(mirror));
+      builder.addAnnotation(AnnotationSpec.get(mirror));
     }
 
     if (methodToOverride.isVarArgs()) {

@@ -147,6 +147,7 @@ final class RequestOptionsGenerator {
                 new Function<MethodAndStaticVar, MethodSignature>() {
                   @Override
                   public MethodSignature apply(MethodAndStaticVar f) {
+                    assert f.method != null;
                     return new MethodSignature(f.method);
                   }
                 }));
@@ -158,6 +159,7 @@ final class RequestOptionsGenerator {
 
     List<MethodAndStaticVar> allMethodsAndStaticVars = new ArrayList<>();
     for (MethodAndStaticVar item : staticOverrides) {
+      assert item.method != null;
       if (extensionMethodSignatures.contains(new MethodSignature(item.method))) {
         continue;
       }

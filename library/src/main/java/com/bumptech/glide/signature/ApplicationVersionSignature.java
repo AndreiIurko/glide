@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentMap;
 
 /**
  * A utility class for obtaining a {@link com.bumptech.glide.load.Key} signature containing the
- * application version name using {@link android.content.pm.PackageInfo#versionCode}.
+ * application version name using .
  */
 public final class ApplicationVersionSignature {
   private static final String TAG = "AppVersionSignature";

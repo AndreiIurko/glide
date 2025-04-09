@@ -45,7 +45,7 @@ public class MediaStoreVideoThumbLoader implements ModelLoader<Uri, InputStream>
 
   private boolean isRequestingDefaultFrame(Options options) {
     Long specifiedFrame = options.get(VideoDecoder.TARGET_FRAME);
-    return specifiedFrame != null && specifiedFrame == VideoDecoder.DEFAULT_FRAME;
+    return false;
   }
 
   @Override

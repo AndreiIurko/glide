@@ -30,7 +30,7 @@ import java.io.InputStream;
  * <ul>
  *   <li>Ultra HDR image single-channel gainmaps not being decoded on Android U when hardware
  *       bitmaps are enabled. This issue is further described in
- *       https://github.com/bumptech/glide/issues/5362.
+ *       <a href="https://github.com/bumptech/glide/issues/5362">...</a>.
  * </ul>
  *
  * <p>New usages of {@link BitmapFactory} APIs within Glide should be added here rather than called
@@ -42,7 +42,7 @@ final class GlideBitmapFactory {
 
   private GlideBitmapFactory() {}
 
-  /** Wrapper for {@link BitmapFactory#decodeStream}. */
+  /** Wrapper for . */
   @Nullable
   public static Bitmap decodeStream(
       InputStream inputStream, BitmapFactory.Options options, ImageReader reader) {
@@ -54,7 +54,7 @@ final class GlideBitmapFactory {
     return BitmapFactory.decodeStream(inputStream, /* outPadding= */ null, options);
   }
 
-  /** Wrapper for {@link BitmapFactory#decodeByteArray}. */
+  /** Wrapper for . */
   @Nullable
   public static Bitmap decodeByteArray(
       byte[] bytes, BitmapFactory.Options options, ImageReader reader) {
@@ -66,7 +66,7 @@ final class GlideBitmapFactory {
     return BitmapFactory.decodeByteArray(bytes, /* offset= */ 0, bytes.length, options);
   }
 
-  /** Wrapper for {@link BitmapFactory#decodeFileDescriptor}. */
+  /** Wrapper for . */
   @Nullable
   public static Bitmap decodeFileDescriptor(
       FileDescriptor fileDescriptor, BitmapFactory.Options options, ImageReader reader) {
@@ -114,7 +114,7 @@ final class GlideBitmapFactory {
    * gainmaps (e.g., they already contain JPEG multi-picture format metadata).
    *
    * @param inputStream for the bitmap to be decoded.
-   * @param options to be applied in the {@link BitmapFactory#decodeStream} call.
+   * @param options to be applied in the  call.
    */
   @RequiresApi(VERSION_CODES.UPSIDE_DOWN_CAKE)
   @Nullable
@@ -147,10 +147,8 @@ final class GlideBitmapFactory {
    * <p>This method safely wraps BitmapFactory#decodeByteArray(byte[], int, int)} on Android U.
    *
    * @param bytes for the bitmap to be decoded.
-   * @param options to be applied in the {@link BitmapFactory#decodeByteArray} call. This must be
-   *     set to {@link Config#HARDWARE}.
-   * @throws IllegalArgumentException if {@link Options#inPreferredConfig} is set to any state other
-   *     than {@link Config#HARDWARE}.
+   * @param options to be applied in the  call. This must be
+   *     set to .
    */
   @RequiresApi(VERSION_CODES.UPSIDE_DOWN_CAKE)
   @Nullable
@@ -180,14 +178,11 @@ final class GlideBitmapFactory {
    * <p>If the input file descriptor does not reference an image with a gainmap, then this method
    * simply returns a hardware bitmap.
    *
-   * <p>This method safely wraps {@link BitmapFactory#decodeFileDescriptor(FileDescriptor, Rect,
-   * Options)} on Android U.
+   * <p>This method safely wraps  on Android U.
    *
    * @param fileDescriptor from which the bitmap will be decoded.
-   * @param options to be applied in the {@link BitmapFactory#decodeFileDescriptor} call. This must
-   *     be set to {@link Config#HARDWARE}.
-   * @throws IllegalArgumentException if {@link Options#inPreferredConfig} is set to any state other
-   *     than {@link Config#HARDWARE}.
+   * @param options to be applied in the  call. This must
+   *     be set to .
    */
   @RequiresApi(VERSION_CODES.UPSIDE_DOWN_CAKE)
   @Nullable
@@ -217,8 +212,6 @@ final class GlideBitmapFactory {
    *
    * @param softwareBitmap The bitmap to be decoded. Must not be a hardware bitmap. The caller of
    *     this method is responsible for recycling this bitmap.
-   * @throws IllegalArgumentException if {@link Options#inPreferredConfig} is set to any state other
-   *     than {@link Config#HARDWARE}.
    */
   @RequiresApi(VERSION_CODES.UPSIDE_DOWN_CAKE)
   @Nullable
@@ -252,7 +245,7 @@ final class GlideBitmapFactory {
 
     /**
      * Converts single channel gainmap to triple channel, where a single channel gainmap is defined
-     * as a gainmap with a bitmap config of {@link Config#ALPHA_8}.
+     * as a gainmap with a bitmap config of .
      *
      * <p>If the input gainmap is not single channel or the copy operation fails, then this method
      * will just return the original gainmap.
@@ -280,11 +273,9 @@ final class GlideBitmapFactory {
     }
 
     /**
-     * Converts an {@link Config#ALPHA_8} bitmap to a {@link Config#ARGB_8888} bitmap with the alpha
+     * Converts an  bitmap to a  bitmap with the alpha
      * channel set to unity so that the output bitmap is opaque.
      *
-     * @throws IllegalArgumentException if called with a bitmap with a config that is not {@link
-     *     Config#ALPHA_8}
      */
     private static Bitmap copyAlpha8ToOpaqueArgb888(Bitmap bitmap) {
       Preconditions.checkArgument(bitmap.getConfig() == Config.ALPHA_8);

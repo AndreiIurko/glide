@@ -115,11 +115,7 @@ public class Photo implements Parcelable {
     if (!server.equals(photo.server)) {
       return false;
     }
-    if (!title.equals(photo.title)) {
-      return false;
-    }
-
-    return true;
+    return title.equals(photo.title);
   }
 
   @Override

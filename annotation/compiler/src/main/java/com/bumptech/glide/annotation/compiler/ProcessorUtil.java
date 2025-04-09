@@ -307,21 +307,20 @@ final class ProcessorUtil {
     }
     modifiers.remove(defaultModifier);
 
-    builder = builder.addModifiers(modifiers);
+    builder.addModifiers(modifiers);
 
     for (TypeParameterElement typeParameterElement : method.getTypeParameters()) {
       TypeVariable var = (TypeVariable) typeParameterElement.asType();
-      builder = builder.addTypeVariable(TypeVariableName.get(var));
+      builder.addTypeVariable(TypeVariableName.get(var));
     }
 
-    builder =
-        builder
-            .returns(TypeName.get(method.getReturnType()))
-            .addParameters(getParameters(method))
-            .varargs(method.isVarArgs());
+    builder
+        .returns(TypeName.get(method.getReturnType()))
+        .addParameters(getParameters(method))
+        .varargs(method.isVarArgs());
 
     for (TypeMirror thrownType : method.getThrownTypes()) {
-      builder = builder.addException(TypeName.get(thrownType));
+      builder.addException(TypeName.get(thrownType));
     }
 
     return builder;
@@ -418,11 +417,11 @@ final class ProcessorUtil {
             indexOfLastWordStart = i;
           }
         }
-        rawClassName = rawClassName.substring(indexOfLastWordStart, rawClassName.length());
+        rawClassName = rawClassName.substring(indexOfLastWordStart);
 
         name =
             Character.toLowerCase(rawClassName.charAt(0))
-                + rawClassName.substring(1, rawClassName.length());
+                + rawClassName.substring(1);
       }
     }
 
@@ -596,7 +595,7 @@ final class ProcessorUtil {
               + "excluded Modules are included in your classpath.");
     }
     Method[] methods = attribute.getClass().getDeclaredMethods();
-    if (methods == null || methods.length == 0) {
+    if (methods.length == 0) {
       throw new IllegalArgumentException(
           "Failed to parse @Excludes for: " + clazz + ", invalid exclude: " + attribute);
     }

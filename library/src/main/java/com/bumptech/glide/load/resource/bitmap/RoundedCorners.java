@@ -17,7 +17,6 @@ public final class RoundedCorners extends BitmapTransformation {
 
   /**
    * @param roundingRadius the corner radius (in device-specific pixels).
-   * @throws IllegalArgumentException if rounding radius is 0 or less.
    */
   public RoundedCorners(int roundingRadius) {
     Preconditions.checkArgument(roundingRadius > 0, "roundingRadius must be greater than 0.");

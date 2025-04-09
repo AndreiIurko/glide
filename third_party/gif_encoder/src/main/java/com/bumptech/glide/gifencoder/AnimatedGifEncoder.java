@@ -74,7 +74,7 @@ public class AnimatedGifEncoder {
 
     private byte[] colorTab; // RGB palette
 
-    private boolean[] usedEntry = new boolean[256]; // active palette entries
+    private final boolean[] usedEntry = new boolean[256]; // active palette entries
 
     private int palSize = 7; // color table size (bits-1)
 
@@ -165,7 +165,7 @@ public class AnimatedGifEncoder {
      * size is used for all subsequent frames. Otherwise, the actual size of the image is used for
      * each frame.
      *
-     * See page 11 of http://giflib.sourceforge.net/gif89.txt for the position of the frame
+     * See page 11 of <a href="http://giflib.sourceforge.net/gif89.txt">...</a> for the position of the frame
      *
      * @param im
      *          BufferedImage containing frame to write.
@@ -437,8 +437,7 @@ public class AnimatedGifEncoder {
         pixels = new byte[pixelsInt.length * 3];
 
         int pixelsIndex = 0;
-        hasTransparentPixels = false;
-        int totalTransparentPixels = 0;
+      int totalTransparentPixels = 0;
         for (final int pixel : pixelsInt) {
             if (pixel == Color.TRANSPARENT) {
                 totalTransparentPixels++;
@@ -505,10 +504,10 @@ public class AnimatedGifEncoder {
         } else {
             // specify normal LCT
             out.write(0x80 | // 1 local color table 1=yes
-                    0 | // 2 interlace - 0=no
-                    0 | // 3 sorted - 0=no
-                    0 | // 4-5 reserved
-                    palSize); // 6-8 size of color table
+                // 2 interlace - 0=no
+                0 | // 3 sorted - 0=no
+                0 | // 4-5 reserved
+                palSize); // 6-8 size of color table
         }
     }
 
@@ -521,9 +520,9 @@ public class AnimatedGifEncoder {
         writeShort(height);
         // packed fields
         out.write((0x80 | // 1 : global color table flag = 1 (gct used)
-                0x70 | // 2-4 : color resolution = 7
-                0x00 | // 5 : gct sort flag = 0
-                palSize)); // 6-8 : gct size
+            0x70 | // 2-4 : color resolution = 7
+            // 5 : gct sort flag = 0
+            palSize)); // 6-8 : gct size
 
         out.write(0); // background color index
         out.write(0); // pixel aspect ratio - assume 1:1

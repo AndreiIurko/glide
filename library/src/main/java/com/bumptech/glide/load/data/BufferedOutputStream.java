@@ -13,7 +13,7 @@ import java.io.OutputStream;
 public final class BufferedOutputStream extends OutputStream {
   @NonNull private final OutputStream out;
   private byte[] buffer;
-  private ArrayPool arrayPool;
+  private final ArrayPool arrayPool;
   private int index;
 
   public BufferedOutputStream(@NonNull OutputStream out, @NonNull ArrayPool arrayPool) {

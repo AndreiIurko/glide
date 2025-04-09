@@ -22,8 +22,8 @@ import javax.lang.model.type.TypeKind;
  * in Glide extensions.
  */
 final class RequestOptionsExtensionGenerator {
-  private TypeName containingClassName;
-  private ProcessorUtil processorUtil;
+  private final TypeName containingClassName;
+  private final ProcessorUtil processorUtil;
 
   RequestOptionsExtensionGenerator(TypeName containingClassName, ProcessorUtil processorUtil) {
     this.containingClassName = containingClassName;

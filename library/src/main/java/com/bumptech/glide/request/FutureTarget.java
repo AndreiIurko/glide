@@ -17,7 +17,7 @@ import java.util.concurrent.Future;
  * futureTarget.cancel(false);
  * }</pre>
  *
- * <p>Note - {@link #get()} and {@link #get(long, java.util.concurrent.TimeUnit)} must be called off
+ * <p>Note -  and  must be called off
  * of the main thread or they will block forever.
  *
  * @param <R> The type of resource this FutureTarget will retrieve.

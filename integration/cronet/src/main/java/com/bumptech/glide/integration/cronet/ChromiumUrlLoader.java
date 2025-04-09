@@ -61,7 +61,7 @@ public final class ChromiumUrlLoader<T> implements ModelLoader<GlideUrl, T> {
   public static final class StreamFactory
       implements ModelLoaderFactory<GlideUrl, InputStream>, ByteBufferParser<InputStream> {
 
-    private CronetRequestFactory requestFactory;
+    private final CronetRequestFactory requestFactory;
     @Nullable private final DataLogger dataLogger;
     @Nullable private final GlideExecutor executor;
 
@@ -106,7 +106,7 @@ public final class ChromiumUrlLoader<T> implements ModelLoader<GlideUrl, T> {
   public static final class ByteBufferFactory
       implements ModelLoaderFactory<GlideUrl, ByteBuffer>, ByteBufferParser<ByteBuffer> {
 
-    private CronetRequestFactory requestFactory;
+    private final CronetRequestFactory requestFactory;
     @Nullable private final DataLogger dataLogger;
     @Nullable private final GlideExecutor executor;
 

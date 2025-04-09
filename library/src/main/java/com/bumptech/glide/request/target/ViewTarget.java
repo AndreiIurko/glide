@@ -28,13 +28,12 @@ import java.util.List;
  * a {@link android.view.ViewTreeObserver.OnDrawListener}.
  *
  * <p>To detect {@link View} reuse in {@link android.widget.ListView} or any {@link
- * android.view.ViewGroup} that reuses views, this class uses the {@link View#setTag(Object)} method
+ * android.view.ViewGroup} that reuses views, this class uses the  method
  * to store some metadata so that if a view is reused, any previous loads or resources from previous
  * loads can be cancelled or reused.
  *
- * <p>Any calls to {@link View#setTag(Object)}} on a View given to this class will result in
- * excessive allocations and and/or {@link IllegalArgumentException}s. If you must call {@link
- * View#setTag(Object)} on a view, use {@link #setTagId(int)} to specify a custom tag for Glide to
+ * <p>Any calls to } on a View given to this class will result in
+ * excessive allocations and and/or {@link IllegalArgumentException}s. If you must call  on a view, use {@link #setTagId(int)} to specify a custom tag for Glide to
  * use.
  *
  * <p>Subclasses must call super in {@link #onLoadCleared(Drawable)}
@@ -151,8 +150,8 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
    * size an {@link View}.
    *
    * <p>By default, Glide will only wait for a pending layout pass if it's unable to resolve the
-   * size from the {@link LayoutParams} or valid non-zero values for {@link View#getWidth()} and
-   * {@link View#getHeight()}.
+   * size from the {@link LayoutParams} or valid non-zero values for  and
+   * .
    *
    * <p>Because calling this method forces Glide to wait for the layout pass to occur before
    * starting loads, setting this parameter to {@code true} can cause Glide to asynchronous load an
@@ -204,8 +203,8 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
   }
 
   /**
-   * Determines the size of the view by first checking {@link android.view.View#getWidth()} and
-   * {@link android.view.View#getHeight()}. If one or both are zero, it then checks the view's
+   * Determines the size of the view by first checking  and
+   * . If one or both are zero, it then checks the view's
    * {@link LayoutParams}. If one or both of the params width and height are less than or equal to
    * zero, it then adds an {@link android.view.ViewTreeObserver.OnPreDrawListener} which waits until
    * the view has been measured before calling the callback with the view's drawn width and height.
@@ -236,7 +235,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
   }
 
   /**
-   * Stores the request using {@link View#setTag(Object)}.
+   * Stores the request using .
    *
    * @param request {@inheritDoc}
    */
@@ -246,14 +245,12 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
   }
 
   /**
-   * Returns any stored request using {@link android.view.View#getTag()}.
+   * Returns any stored request using .
    *
-   * <p>For Glide to function correctly, Glide must be the only thing that calls {@link
-   * View#setTag(Object)}. If the tag is cleared or put to another object type, Glide will not be
+   * <p>For Glide to function correctly, Glide must be the only thing that calls . If the tag is cleared or put to another object type, Glide will not be
    * able to retrieve and cancel previous loads which will not only prevent Glide from reusing
    * resource, but will also result in incorrect images being loaded and lots of flashing of images
-   * in lists. As a result, this will throw an {@link java.lang.IllegalArgumentException} if {@link
-   * android.view.View#getTag()}} returns a non null object that is not an {@link
+   * in lists. As a result, this will throw an {@link java.lang.IllegalArgumentException} if } returns a non null object that is not an {@link
    * com.bumptech.glide.request.Request}.
    */
   @Override
@@ -288,11 +285,11 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
   }
 
   /**
-   * Sets the android resource id to use in conjunction with {@link View#setTag(int, Object)} to
+   * Sets the android resource id to use in conjunction with  to
    * store temporary state allowing loads to be automatically cancelled and resources re-used in
    * scrolling lists.
    *
-   * <p>If no tag id is set, Glide will use {@link View#setTag(Object)}.
+   * <p>If no tag id is set, Glide will use .
    *
    * <p>Warning: prior to Android 4.0 tags were stored in a static map. Using this method prior to
    * Android 4.0 may cause memory leaks and isn't recommended. If you do use this method on older

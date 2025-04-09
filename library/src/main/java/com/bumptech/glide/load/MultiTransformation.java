@@ -41,7 +41,7 @@ public class MultiTransformation<T> implements Transformation<T> {
 
     for (Transformation<T> transformation : transformations) {
       Resource<T> transformed = transformation.transform(context, previous, outWidth, outHeight);
-      if (previous != null && !previous.equals(resource) && !previous.equals(transformed)) {
+      if (!previous.equals(resource) && !previous.equals(transformed)) {
         previous.recycle();
       }
       previous = transformed;
