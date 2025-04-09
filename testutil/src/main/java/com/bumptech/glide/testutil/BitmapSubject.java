@@ -36,7 +36,7 @@ public final class BitmapSubject extends Subject {
 
   public static BitmapSubject assertThat(Drawable drawable) {
     if (!(drawable instanceof BitmapDrawable)) {
-      throw new IllegalArgumentException("Not a BitmapDrawable: " + drawable);
+      throw new IllegalArgumentException("Not a BitmapDrawable: " + null);
     }
     return assertThat(((BitmapDrawable) drawable).getBitmap());
   }

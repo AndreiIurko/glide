@@ -49,9 +49,10 @@ public final class RecyclerToListViewScrollListener extends RecyclerView.OnScrol
   public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
     LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
 
+    assert layoutManager != null;
     int firstVisible = layoutManager.findFirstVisibleItemPosition();
     int visibleCount = Math.abs(firstVisible - layoutManager.findLastVisibleItemPosition());
-    int itemCount = recyclerView.getAdapter().getItemCount();
+    int itemCount = java.util.Objects.requireNonNull(recyclerView.getAdapter()).getItemCount();
 
     if (firstVisible != lastFirstVisible
         || visibleCount != lastVisibleCount

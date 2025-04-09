@@ -11,8 +11,8 @@ package com.bumptech.glide.load;
  * caller performs on a Bitmap returned by Glide.
  *
  * <p>On Android P+, Glide supports SRGB and display P3. However, if display p3 is requested, we
- * will still decode to SRGB unless {@link android.graphics.BitmapFactory.Options#outColorSpace} is
- * also {@link android.graphics.ColorSpace.Named#DISPLAY_P3}. Preferring P3 for SRGB images adds
+ * will still decode to SRGB unless  is
+ * also . Preferring P3 for SRGB images adds
  * unnecessary CPU work to convert back and forth between the color spaces at decode time.
  *
  * <p>Using {@link #DISPLAY_P3} is wasteful if either the screen or the renderer do not support P3.
@@ -29,8 +29,8 @@ package com.bumptech.glide.load;
  * Bitmap will actually use the requested color space.
  */
 public enum PreferredColorSpace {
-  /** Prefers to decode images using {@link android.graphics.ColorSpace.Named#SRGB}. */
+  /** Prefers to decode images using . */
   SRGB,
-  /** Prefers to decode images using {@link android.graphics.ColorSpace.Named#DISPLAY_P3}. */
+  /** Prefers to decode images using . */
   DISPLAY_P3,
 }

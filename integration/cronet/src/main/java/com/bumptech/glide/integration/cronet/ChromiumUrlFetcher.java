@@ -56,6 +56,7 @@ final class ChromiumUrlFetcher<T> implements DataFetcher<T>, ChromiumRequestSeri
 
   @Override
   public void onRequestFailed(@Nullable Exception e) {
+    assert e != null;
     callback.onLoadFailed(e);
   }
 }

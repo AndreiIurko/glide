@@ -56,11 +56,7 @@ public class MultiClassKey {
     if (!second.equals(that.second)) {
       return false;
     }
-    if (!Util.bothNullOrEqual(third, that.third)) {
-      return false;
-    }
-
-    return true;
+    return Util.bothNullOrEqual(third, that.third);
   }
 
   @Override

@@ -226,16 +226,16 @@ public interface GifDecoder {
   /**
    * Sets the default {@link android.graphics.Bitmap.Config} to use when decoding frames of a GIF.
    *
-   * <p>Valid options are {@link android.graphics.Bitmap.Config#ARGB_8888} and
-   * {@link android.graphics.Bitmap.Config#RGB_565}.
-   * {@link android.graphics.Bitmap.Config#ARGB_8888} will produce higher quality frames, but will
-   * also use 2x the memory of {@link android.graphics.Bitmap.Config#RGB_565}.
+   * <p>Valid options are  and
+   * .
+   *  will produce higher quality frames, but will
+   * also use 2x the memory of .
    *
-   * <p>Defaults to {@link android.graphics.Bitmap.Config#ARGB_8888}
+   * <p>Defaults to
    *
    * <p>This value is not a guarantee. For example if set to
-   * {@link android.graphics.Bitmap.Config#RGB_565} and the GIF contains transparent pixels,
-   * {@link android.graphics.Bitmap.Config#ARGB_8888} will be used anyway to support the
+   *  and the GIF contains transparent pixels,
+   *  will be used anyway to support the
    * transparency.
    */
   void setDefaultBitmapConfig(@NonNull Bitmap.Config format);

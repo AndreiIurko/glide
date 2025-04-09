@@ -271,7 +271,7 @@ public class Glide implements ComponentCallbacks2 {
   @Nullable
   @SuppressWarnings({"unchecked", "TryWithIdenticalCatches", "PMD.UnusedFormalParameter"})
   private static GeneratedAppGlideModule getAnnotationGeneratedGlideModules(Context context) {
-    GeneratedAppGlideModule result = null;
+    GeneratedAppGlideModule result;
     try {
       Class<GeneratedAppGlideModule> clazz =
           (Class<GeneratedAppGlideModule>)
@@ -434,8 +434,6 @@ public class Glide implements ComponentCallbacks2 {
   /**
    * Clears as much memory as possible.
    *
-   * @see android.content.ComponentCallbacks#onLowMemory()
-   * @see android.content.ComponentCallbacks2#onLowMemory()
    */
   public void clearMemory() {
     // Engine asserts this anyway when removing resources, fail faster and consistently
@@ -449,7 +447,6 @@ public class Glide implements ComponentCallbacks2 {
   /**
    * Clears some memory with the exact amount depending on the given level.
    *
-   * @see android.content.ComponentCallbacks2#onTrimMemory(int)
    */
   public void trimMemory(int level) {
     // Engine asserts this anyway when removing resources, fail faster and consistently
@@ -594,7 +591,7 @@ public class Glide implements ComponentCallbacks2 {
    * @return A RequestManager for the given Fragment that can be used to start a load.
    * @deprecated This method is identical to calling {@link Glide#with(Context)} using the
    *     application context. Prefer support Fragments and {@link #with(Fragment)} instead. See
-   *     https://github.com/android/android-ktx/pull/161#issuecomment-363270555.
+   *     <a href="https://github.com/android/android-ktx/pull/161#issuecomment-363270555">...</a>.
    */
   @Deprecated
   @NonNull

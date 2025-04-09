@@ -22,13 +22,11 @@ public interface BitmapPool {
 
   /**
    * Adds the given {@link android.graphics.Bitmap} if it is eligible to be re-used and the pool can
-   * fit it, or calls {@link Bitmap#recycle()} on the Bitmap and discards it.
+   * fit it, or calls  on the Bitmap and discards it.
    *
    * <p>Callers must <em>not</em> continue to use the Bitmap after calling this method.
    *
    * @param bitmap The {@link android.graphics.Bitmap} to attempt to add.
-   * @see android.graphics.Bitmap#isMutable()
-   * @see android.graphics.Bitmap#recycle()
    */
   void put(Bitmap bitmap);
 

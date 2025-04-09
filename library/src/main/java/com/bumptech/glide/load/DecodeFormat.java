@@ -1,7 +1,7 @@
 package com.bumptech.glide.load;
 
 /**
- * Options for setting the value of {@link android.graphics.Bitmap#getConfig()} for {@link
+ * Options for setting the value of  for {@link
  * android.graphics.Bitmap}s returned by {@link com.bumptech.glide.load.ResourceDecoder}s.
  *
  * <p>Note - In some cases it may not be possible to obey the requested setting, not all {@link
@@ -11,17 +11,15 @@ package com.bumptech.glide.load;
  */
 public enum DecodeFormat {
   /**
-   * Bitmaps returned by the {@link com.bumptech.glide.load.ResourceDecoder}. should return {@link
-   * android.graphics.Bitmap.Config#ARGB_8888} for {@link android.graphics.Bitmap#getConfig()} when
+   * Bitmaps returned by the {@link ResourceDecoder}. should return  for  when
    * possible.
    *
-   * <p>On Android O+, this format will use ARGB_8888 only when it's not possible to use {@link
-   * android.graphics.Bitmap.Config#HARDWARE}. More information is available about hardware Bitmaps
+   * <p>On Android O+, this format will use ARGB_8888 only when it's not possible to use . More information is available about hardware Bitmaps
    * here: https://goo.gl/tn2A6k. If you need to disable hardware Bitmaps for a particular request,
-   * use {@link com.bumptech.glide.request.RequestOptions#disallowHardwareConfig()}.
+   * use {@link com.bumptech.glide.request.RequestOptions#d<a href="isallowHardwareConfig">...</a>()}.
    *
    * <p>GIF images decoded by {@link android.graphics.BitmapFactory} currently use an internal
-   * hidden format that is returned as null from {@link android.graphics.Bitmap#getConfig()}. Since
+   * hidden format that is returned as null from . Since
    * we cannot force {@link android.graphics.BitmapFactory} to always return our desired config,
    * this setting is a preference, not a promise.
    */
@@ -29,13 +27,10 @@ public enum DecodeFormat {
 
   /**
    * Bitmaps decoded from image formats that support and/or use alpha (some types of PNGs, GIFs etc)
-   * should return {@link android.graphics.Bitmap.Config#ARGB_8888} for {@link
-   * android.graphics.Bitmap#getConfig()}. Bitmaps decoded from formats that don't support or use
-   * alpha should return {@link android.graphics.Bitmap.Config#RGB_565} for {@link
-   * android.graphics.Bitmap#getConfig()}.
+   * should return  for . Bitmaps decoded from formats that don't support or use
+   * alpha should return  for .
    *
-   * <p>On Android O+, this format will use RGB_565 only when it's not possible to use {@link
-   * android.graphics.Bitmap.Config#HARDWARE}.
+   * <p>On Android O+, this format will use RGB_565 only when it's not possible to use .
    */
   PREFER_RGB_565;
 

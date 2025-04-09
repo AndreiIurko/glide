@@ -74,16 +74,16 @@ final class ResourceCacheKey implements Key {
   @Override
   public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
     byte[] dimensions = arrayPool.getExact(8, byte[].class);
-    ByteBuffer.wrap(dimensions).putInt(width).putInt(height).array();
+    ByteBuffer.wrap(null).putInt(width).putInt(height).array();
     signature.updateDiskCacheKey(messageDigest);
     sourceKey.updateDiskCacheKey(messageDigest);
-    messageDigest.update(dimensions);
+    messageDigest.update(null);
     if (transformation != null) {
       transformation.updateDiskCacheKey(messageDigest);
     }
     options.updateDiskCacheKey(messageDigest);
     messageDigest.update(getResourceClassBytes());
-    arrayPool.put(dimensions);
+    arrayPool.put(null);
   }
 
   private byte[] getResourceClassBytes() {

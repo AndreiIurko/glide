@@ -78,7 +78,7 @@ public final class TransformationUtils {
               "XT1079"));
 
   /**
-   * https://github.com/bumptech/glide/issues/738 On some devices, bitmap drawing is not thread
+   * <a href="https://github.com/bumptech/glide/issues/738">...</a> On some devices, bitmap drawing is not thread
    * safe. This lock only locks for these specific devices. For other types of devices the lock is
    * always available and therefore does not impact performance
    */
@@ -229,7 +229,7 @@ public final class TransformationUtils {
 
   /**
    * Sets the alpha of the Bitmap we're going to re-use to the alpha of the Bitmap we're going to
-   * transform. This keeps {@link android.graphics.Bitmap#hasAlpha()}} consistent before and after
+   * transform. This keeps } consistent before and after
    * the transformation for transformations that don't add or remove transparent pixels.
    *
    * @param inBitmap The {@link android.graphics.Bitmap} that will be transformed.
@@ -439,7 +439,6 @@ public final class TransformationUtils {
    * @param height the height of the generated bitmap.
    * @param roundingRadius the corner radius to be applied (in device-specific pixels).
    * @return a {@link Bitmap} similar to inBitmap but with rounded corners.
-   * @throws IllegalArgumentException if roundingRadius, width or height is 0 or less.
    * @deprecated Width and height are unused and ignored. Use {@link #roundedCorners(BitmapPool,
    *     Bitmap, int)} instead.
    */
@@ -464,7 +463,6 @@ public final class TransformationUtils {
    * @param inBitmap the source bitmap to use as a basis for the created bitmap.
    * @param roundingRadius the corner radius to be applied (in device-specific pixels).
    * @return a {@link Bitmap} similar to inBitmap but with rounded corners.
-   * @throws IllegalArgumentException if roundingRadius, width or height is 0 or less.
    */
   public static Bitmap roundedCorners(
       @NonNull BitmapPool pool, @NonNull Bitmap inBitmap, final int roundingRadius) {

@@ -278,9 +278,7 @@ public class RequestManager
    * automatically resume onStart().
    *
    * <p>This will release the memory used by completed bitmaps but leaves them in any configured
-   * caches. When an #{@link android.app.Activity} receives #{@link
-   * android.app.Activity#onTrimMemory(int)} at a level of #{@link
-   * android.content.ComponentCallbacks2#TRIM_MEMORY_BACKGROUND} this is desirable in order to keep
+   * caches. When an #{@link android.app.Activity} receives # at a level of # this is desirable in order to keep
    * your process alive longer.
    *
    * @see #isPaused()
@@ -615,12 +613,10 @@ public class RequestManager
    * Cancel any pending loads Glide may have for the view and free any resources that may have been
    * loaded for the view.
    *
-   * <p>Note that this will only work if {@link View#setTag(Object)} is not called on this view
+   * <p>Note that this will only work if  is not called on this view
    * outside of Glide.
    *
    * @param view The view to cancel loads and free resources for.
-   * @throws IllegalArgumentException if an object other than Glide's metadata is put as the view's
-   *     tag.
    * @see #clear(Target)
    */
   public void clear(@NonNull View view) {

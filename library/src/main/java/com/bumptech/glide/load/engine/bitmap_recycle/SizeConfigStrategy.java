@@ -15,9 +15,8 @@ import java.util.NavigableMap;
 import java.util.TreeMap;
 
 /**
- * Keys {@link android.graphics.Bitmap Bitmaps} using both {@link
- * android.graphics.Bitmap#getAllocationByteCount()} and the {@link android.graphics.Bitmap.Config}
- * returned from {@link android.graphics.Bitmap#getConfig()}.
+ * Keys {@link android.graphics.Bitmap Bitmaps} using both  and the {@link android.graphics.Bitmap.Config}
+ * returned from .
  *
  * <p>Using both the config and the byte size allows us to safely re-use a greater variety of {@link
  * android.graphics.Bitmap Bitmaps}, which increases the hit rate of the pool and therefore the
@@ -91,14 +90,6 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     for (Bitmap.Config possibleConfig : getInConfigs(config)) {
       NavigableMap<Integer, Integer> sizesForPossibleConfig = getSizesForConfig(possibleConfig);
       Integer possibleSize = sizesForPossibleConfig.ceilingKey(size);
-      if (possibleSize != null && possibleSize <= size * MAX_SIZE_MULTIPLE) {
-        if (possibleSize != size
-            || (possibleConfig == null ? config != null : !possibleConfig.equals(config))) {
-          keyPool.offer(result);
-          result = keyPool.get(possibleSize, possibleConfig);
-        }
-        break;
-      }
     }
     return result;
   }

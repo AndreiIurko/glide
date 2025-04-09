@@ -40,7 +40,7 @@ import java.io.InputStream;
  * </ul>
  *
  * <p>MediaStore.setRequireOriginal will only work for applications that target Q and request and
- * currently have {@link android.Manifest.permission#ACCESS_MEDIA_LOCATION}. It's the simplest
+ * currently have . It's the simplest
  * change to make, but it covers the fewest applications.
  *
  * <p>Querying for the file path and opening the file directly works for applications that do not
@@ -49,7 +49,7 @@ import java.io.InputStream;
  * the only consistent way to get unredacted files is via the file system.
  *
  * <p>This class does not fix applications that target Q, do not opt in to legacy storage and that
- * don't have {@link android.Manifest.permission#ACCESS_MEDIA_LOCATION}.
+ * don't have .
  *
  * <p>Avoid using this class directly, it may be removed in any future version of Glide.
  *

@@ -27,7 +27,7 @@ import javax.lang.model.element.TypeElement;
 final class RequestOptionsOverrideGenerator {
 
   private final TypeElement baseRequestOptionsType;
-  private ProcessorUtil processorUtil;
+  private final ProcessorUtil processorUtil;
 
   RequestOptionsOverrideGenerator(
       ProcessingEnvironment processingEnv, ProcessorUtil processorUtil) {

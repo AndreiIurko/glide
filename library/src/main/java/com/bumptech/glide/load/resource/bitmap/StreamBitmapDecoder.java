@@ -62,9 +62,6 @@ public class StreamBitmapDecoder implements ResourceDecoder<InputStream, Bitmap>
       return downsampler.decode(invalidatingStream, width, height, options, callbacks);
     } finally {
       exceptionStream.release();
-      if (ownsBufferedStream) {
-        bufferedStream.release();
-      }
     }
   }
 

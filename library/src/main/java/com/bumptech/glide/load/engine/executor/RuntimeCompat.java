@@ -30,18 +30,18 @@ final class RuntimeCompat {
   /**
    * Determines the number of cores available on the device (pre-v17).
    *
-   * <p>Before Jellybean, {@link Runtime#availableProcessors()} returned the number of awake cores,
+   * <p>Before Jellybean,  returned the number of awake cores,
    * which may not be the number of available cores depending on the device's current state. See
-   * https://stackoverflow.com/a/30150409.
-   *
-   * @return the maximum number of processors available to the VM; never smaller than one
+   * https://stackoverflow.com/a/30150409.<a href="
+   ">*
+   * @return the maximum numbe</a>r of processors available to the VM; never smaller than one
    */
   @SuppressWarnings("PMD")
   private static int getCoreCountPre17() {
     // We override the current ThreadPolicy to allow disk reads.
     // This shouldn't actually do disk-IO and accesses a device file.
     // See: https://github.com/bumptech/glide/issues/1170
-    File[] cpus = null;
+    File[] cpus;
     ThreadPolicy originalPolicy = StrictMode.allowThreadDiskReads();
     try {
       File cpuInfo = new File(CPU_LOCATION);

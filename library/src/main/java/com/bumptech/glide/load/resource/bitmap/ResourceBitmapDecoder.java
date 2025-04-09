@@ -22,8 +22,7 @@ import com.bumptech.glide.request.target.Target;
  * by drawing the {@link Drawable} to a {@link Canvas}s using the {@link Drawable}'s intrinsic
  * bounds or the dimensions provided to {@link #decode(Uri, int, int, Options)}.
  *
- * <p>For non-{@link Bitmap} {@link Drawable}s that return {@code <= 0} for {@link
- * Drawable#getIntrinsicWidth()} and/or {@link Drawable#getIntrinsicHeight()}, this decoder will
+ * <p>For non-{@link Bitmap} {@link Drawable}s that return {@code <= 0} for  and/or , this decoder will
  * fail if the width and height provided to {@link #decode(Uri, int, int, Options)} are {@link
  * Target#SIZE_ORIGINAL}.
  */

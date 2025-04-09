@@ -12,7 +12,7 @@ public final class Options implements Key {
   private final ArrayMap<Option<?>, Object> values = new CachedHashCodeArrayMap<>();
 
   public void putAll(@NonNull Options other) {
-    values.putAll((SimpleArrayMap<Option<?>, Object>) other.values);
+    values.putAll(other.values);
   }
 
   @NonNull

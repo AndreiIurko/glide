@@ -19,7 +19,7 @@ import java.util.Queue;
  * obey the stream contract. This is really only useful if some middle layer is going to catch the
  * exception (like BitmapFactory) but we want to propagate the exception instead.
  *
- * <p>See https://github.com/bumptech/glide/issues/126 and #4438.
+ * <p>See <a href="https://github.com/bumptech/glide/issues/126">...</a> and #4438.
  */
 public final class ExceptionPassthroughInputStream extends InputStream {
 

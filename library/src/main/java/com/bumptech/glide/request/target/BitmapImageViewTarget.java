@@ -25,8 +25,7 @@ public class BitmapImageViewTarget extends ImageViewTarget<Bitmap> {
   }
 
   /**
-   * Sets the {@link android.graphics.Bitmap} on the view using {@link
-   * android.widget.ImageView#setImageBitmap(android.graphics.Bitmap)}.
+   * Sets the {@link android.graphics.Bitmap} on the view using .
    *
    * @param resource The bitmap to display.
    */

@@ -127,7 +127,7 @@ public final class GlideException extends Exception {
         addRootCauses(t, rootCauses);
       }
     } else {
-      rootCauses.add(throwable);
+      rootCauses.add(null);
     }
   }
 
@@ -221,7 +221,7 @@ public final class GlideException extends Exception {
         GlideException glideCause = (GlideException) cause;
         glideCause.printStackTrace(appendable);
       } else {
-        appendExceptionMessage(cause, appendable);
+        appendExceptionMessage(null, appendable);
       }
     }
   }

@@ -605,7 +605,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
    * com.bumptech.glide.request.RequestOptions#skipMemoryCache(boolean)} may be appropriate.
    *
    * <p>If {@code string} is in fact a resource {@link Uri}, you should first parse it to a Uri
-   * using {@link Uri#parse(String)} and then pass the {@code Uri} to {@link #load(Uri)}. Doing so
+   * using  and then pass the {@code Uri} to {@link #load(Uri)}. Doing so
    * will ensure that we respect the appropriate theme / dark / light mode. As an alternative, you
    * can also manually apply the current {@link Theme} using {@link #theme(Theme)}.
    *
@@ -631,13 +631,11 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
    * data changes. Alternatively, using {@link
    * com.bumptech.glide.load.engine.DiskCacheStrategy#NONE} and/or {@link
    * com.bumptech.glide.request.RequestOptions#skipMemoryCache(boolean)} may be appropriate. The
-   * only exception to this is that if we recognize the given {@code uri} as having {@link
-   * ContentResolver#SCHEME_ANDROID_RESOURCE}, then we'll apply {@link AndroidResourceSignature}
+   * only exception to this is that if we recognize the given {@code uri} as having , then we'll apply {@link AndroidResourceSignature}
    * automatically. If we do so, calls to other {@code load()} methods will <em>not</em> override
    * the automatically applied signature.
    *
-   * <p>If {@code uri} has a {@link Uri#getScheme()} of {@link
-   * android.content.ContentResolver#SCHEME_ANDROID_RESOURCE}, then this method will add the {@link
+   * <p>If {@code uri} has a  of , then this method will add the {@link
    * android.content.res.Resources.Theme} of the {@link Context} associated with this {@code
    * requestBuilder} so that we can respect themeable attributes and/or light / dark mode. Any call
    * to {@link #theme(Theme)} prior to this method call will be overridden. To avoid this, call
@@ -897,15 +895,13 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
           requestOptions = requestOptions.clone().optionalCenterCrop();
           break;
         case CENTER_INSIDE:
+        case FIT_XY:
           requestOptions = requestOptions.clone().optionalCenterInside();
           break;
         case FIT_CENTER:
         case FIT_START:
         case FIT_END:
           requestOptions = requestOptions.clone().optionalFitCenter();
-          break;
-        case FIT_XY:
-          requestOptions = requestOptions.clone().optionalCenterInside();
           break;
         case CENTER:
         case MATRIX:

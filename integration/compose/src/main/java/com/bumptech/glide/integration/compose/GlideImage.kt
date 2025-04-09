@@ -354,7 +354,7 @@ public sealed class Placeholder {
   internal abstract fun painter(): Painter
 
   /** This class does nothing, the functionality has been deprecated for a while. */
-  internal class OfComposable() : Placeholder() {
+  internal class OfComposable : Placeholder() {
     private val painter = ColorPainter(Color.Transparent)
     @Composable
     override fun painter(): Painter {

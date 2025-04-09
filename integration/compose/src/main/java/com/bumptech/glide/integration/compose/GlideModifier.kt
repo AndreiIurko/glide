@@ -104,7 +104,7 @@ internal fun Modifier.glideNode(
 
 @ExperimentalGlideComposeApi
 @OptIn(InternalGlideApi::class)
-internal data class GlideNodeElement constructor(
+internal data class GlideNodeElement(
   private val requestBuilder: RequestBuilder<Drawable>,
   private val contentScale: ContentScale,
   private val alignment: Alignment,

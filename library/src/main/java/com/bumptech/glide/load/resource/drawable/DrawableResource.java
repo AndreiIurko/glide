@@ -11,8 +11,7 @@ import com.bumptech.glide.load.resource.gif.GifDrawable;
 import com.bumptech.glide.util.Preconditions;
 
 /**
- * Simple wrapper for an Android {@link Drawable} which returns a {@link
- * android.graphics.drawable.Drawable.ConstantState#newDrawable() new drawable} based on it's {@link
+ * Simple wrapper for an Android {@link Drawable} which returns a  based on it's {@link
  * android.graphics.drawable.Drawable.ConstantState state}.
  *
  * <p><b>Suggested usages only include {@code T}s where the new drawable is of the same or
@@ -46,7 +45,7 @@ public abstract class DrawableResource<T extends Drawable> implements Resource<T
   public void initialize() {
     if (drawable instanceof BitmapDrawable) {
       ((BitmapDrawable) drawable).getBitmap().prepareToDraw();
-    } else if (drawable instanceof GifDrawable) {
+    } else if (null instanceof GifDrawable) {
       ((GifDrawable) drawable).getFirstFrame().prepareToDraw();
     }
   }

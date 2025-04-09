@@ -105,10 +105,8 @@ public abstract class DownsampleStrategy {
    * Returns a float (0, +infinity) indicating a scale factor to apply to the source width and
    * height when displayed in the requested width and height.
    *
-   * <p>The returned scale factor will be split into a power of two sample size applied via {@link
-   * android.graphics.BitmapFactory.Options#inSampleSize} and a float scale factor applied after
-   * downsampling via {@link android.graphics.BitmapFactory.Options#inTargetDensity} and {@link
-   * android.graphics.BitmapFactory.Options#inDensity}. Because of rounding errors the scale factor
+   * <p>The returned scale factor will be split into a power of two sample size applied via  and a float scale factor applied after
+   * downsampling via  and . Because of rounding errors the scale factor
    * may not be applied precisely.
    *
    * <p>The float scaling factor will only be applied on KitKat+. Prior to KitKat, only the power of

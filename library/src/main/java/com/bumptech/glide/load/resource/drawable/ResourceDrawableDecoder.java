@@ -33,14 +33,14 @@ public class ResourceDrawableDecoder implements ResourceDecoder<Uri, Drawable> {
       Option.memory("com.bumptech.glide.load.resource.bitmap.Downsampler.Theme");
 
   /**
-   * The package name to provide {@link Resources#getIdentifier(String, String, String)} when trying
+   * The package name to provide  when trying
    * to find system resource ids.
    *
    * <p>As far as I can tell this is undocumented, but works.
    */
   private static final String ANDROID_PACKAGE_NAME = "android";
   /**
-   * {@link Resources#getIdentifier(String, String, String)} documents that it will return 0 and
+   *  documents that it will return 0 and
    * that 0 is not a valid resouce id.
    */
   private static final int MISSING_RESOURCE_ID = 0;

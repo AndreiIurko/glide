@@ -10,10 +10,9 @@ import com.bumptech.glide.util.Util;
 import java.util.NavigableMap;
 
 /**
- * A strategy for reusing bitmaps that relies on {@link Bitmap#reconfigure(int, int,
- * Bitmap.Config)}.
+ * A strategy for reusing bitmaps that relies on .
  *
- * <p>Requires {@link Build.VERSION_CODES#KITKAT KitKat} or higher.
+ * <p>Requires  or higher.
  */
 @RequiresApi(Build.VERSION_CODES.KITKAT)
 final class SizeStrategy implements LruPoolStrategy {
@@ -40,10 +39,6 @@ final class SizeStrategy implements LruPoolStrategy {
     Key key = keyPool.get(size);
 
     Integer possibleSize = sortedSizes.ceilingKey(size);
-    if (possibleSize != null && possibleSize != size && possibleSize <= size * MAX_SIZE_MULTIPLE) {
-      keyPool.offer(key);
-      key = keyPool.get(possibleSize);
-    }
 
     // Do a get even if we know we don't have a bitmap so that the key moves to the front in the
     // lru pool

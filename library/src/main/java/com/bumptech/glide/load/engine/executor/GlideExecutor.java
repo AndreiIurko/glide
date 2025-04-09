@@ -387,8 +387,7 @@ public final class GlideExecutor implements ExecutorService {
   }
 
   /**
-   * A {@link java.util.concurrent.ThreadFactory} that builds threads slightly above priority {@link
-   * android.os.Process#THREAD_PRIORITY_BACKGROUND}.
+   * A {@link java.util.concurrent.ThreadFactory} that builds threads slightly above priority .
    */
   private static final class DefaultThreadFactory implements ThreadFactory {
 

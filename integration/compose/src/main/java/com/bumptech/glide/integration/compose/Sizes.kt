@@ -33,12 +33,12 @@ internal fun RequestBuilder<out Any?>.isOverrideSizeSet(): Boolean =
   overrideWidth.isValidGlideDimension() && overrideHeight.isValidGlideDimension()
 
 internal fun androidx.compose.ui.geometry.Size.toGlideSize(): Size? {
-  val width = width.roundToInt();
-  val height = height.roundToInt();
+  val width = width.roundToInt()
+  val height = height.roundToInt()
   if (!width.isValidGlideDimension() || !height.isValidGlideDimension()) {
-    return null;
+    return null
   }
-  return Size(width, height);
+  return Size(width, height)
 }
 
 internal fun Constraints.inferredGlideSize(): Size? {

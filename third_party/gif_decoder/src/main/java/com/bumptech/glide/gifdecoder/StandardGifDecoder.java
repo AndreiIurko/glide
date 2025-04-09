@@ -543,8 +543,8 @@ public class StandardGifDecoder implements GifDecoder {
     }
 
     isFirstFrameTransparent =
-        (isFirstFrameTransparent != null && isFirstFrameTransparent)
-            || (isFirstFrameTransparent == null && isFirstFrame && transparentColorIndex != -1);
+        isFirstFrameTransparent != null && isFirstFrameTransparent
+            || isFirstFrame && transparentColorIndex != -1;
   }
 
   private void copyCopyIntoScratchRobust(GifFrame currentFrame) {

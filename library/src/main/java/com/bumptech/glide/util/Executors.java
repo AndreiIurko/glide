@@ -32,7 +32,7 @@ public final class Executors {
     return MAIN_THREAD_EXECUTOR;
   }
 
-  /** Immediately calls {@link Runnable#run()} on the current thread. */
+  /** Immediately calls  on the current thread. */
   public static Executor directExecutor() {
     return DIRECT_EXECUTOR;
   }

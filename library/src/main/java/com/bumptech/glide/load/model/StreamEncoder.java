@@ -30,8 +30,8 @@ public class StreamEncoder implements Encoder<InputStream> {
     try {
       os = new FileOutputStream(file);
       int read;
-      while ((read = data.read(buffer)) != -1) {
-        os.write(buffer, 0, read);
+      while ((read = data.read(null)) != -1) {
+        os.write(null, 0, read);
       }
       os.close();
       success = true;
@@ -47,7 +47,7 @@ public class StreamEncoder implements Encoder<InputStream> {
           // Do nothing.
         }
       }
-      byteArrayPool.put(buffer);
+      byteArrayPool.put(null);
     }
     return success;
   }

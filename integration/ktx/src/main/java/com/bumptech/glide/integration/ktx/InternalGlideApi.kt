@@ -7,5 +7,5 @@ package com.bumptech.glide.integration.ktx
       " at any time without warning."
 )
 @Retention(AnnotationRetention.BINARY)
-@kotlin.annotation.Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
+@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
 public annotation class InternalGlideApi

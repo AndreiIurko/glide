@@ -65,8 +65,6 @@ class StrictLineReader implements Closeable {
    * @param in the {@code InputStream} to read data from.
    * @param charset the charset used to decode data. Only US-ASCII, UTF-8 and ISO-8859-1 are
    * supported.
-   * @throws NullPointerException if {@code in} or {@code charset} is null.
-   * @throws IllegalArgumentException if the specified charset is not supported.
    */
   StrictLineReader(InputStream in, Charset charset) {
     this(in, 8192, charset);
@@ -79,9 +77,6 @@ class StrictLineReader implements Closeable {
    * @param capacity the capacity of the buffer.
    * @param charset the charset used to decode data. Only US-ASCII, UTF-8 and ISO-8859-1 are
    * supported.
-   * @throws NullPointerException if {@code in} or {@code charset} is null.
-   * @throws IllegalArgumentException if {@code capacity} is negative or zero
-   * or the specified charset is not supported.
    */
   StrictLineReader(InputStream in, int capacity, Charset charset) {
     if (in == null || charset == null) {

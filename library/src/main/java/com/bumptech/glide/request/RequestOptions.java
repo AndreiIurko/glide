@@ -127,7 +127,7 @@ public class RequestOptions extends BaseRequestOptions<RequestOptions> {
     return overrideOf(size, size);
   }
 
-  /** Returns a {@link RequestOptions} object with {@link #signature} set. */
+  /** Returns a {@link RequestOptions} object with  set. */
   @NonNull
   @CheckResult
   public static RequestOptions signatureOf(@NonNull Key signature) {

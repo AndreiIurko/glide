@@ -67,7 +67,7 @@ final class DecodeHelper<Transcode> {
     this.diskCacheStrategy = diskCacheStrategy;
     this.resourceClass = resourceClass;
     this.diskCacheProvider = diskCacheProvider;
-    this.transcodeClass = (Class<Transcode>) transcodeClass;
+    this.transcodeClass = transcodeClass;
     this.priority = priority;
     this.options = options;
     this.transformations = transformations;

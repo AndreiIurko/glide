@@ -28,7 +28,7 @@ public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
   @Override
   public Transition<Drawable> build(DataSource dataSource, boolean isFirstResource) {
     return dataSource == DataSource.MEMORY_CACHE
-        ? NoTransition.<Drawable>get()
+        ? NoTransition.get()
         : getResourceTransition();
   }
 
@@ -66,8 +66,7 @@ public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
      * @param isCrossFadeEnabled If {@code true} the previous {@link Drawable}'s alpha will be
      *     animated from 100 to 0 while the new {@link Drawable}'s alpha is animated from 0 to 100.
      *     Otherwise the previous {@link Drawable}'s alpha will remain at 100 throughout the
-     *     animation. See {@link
-     *     android.graphics.drawable.TransitionDrawable#setCrossFadeEnabled(boolean)}
+     *     animation. See
      */
     public Builder setCrossFadeEnabled(boolean isCrossFadeEnabled) {
       this.isCrossFadeEnabled = isCrossFadeEnabled;

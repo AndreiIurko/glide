@@ -337,8 +337,6 @@ final class JournaledLruDiskCache {
    * journal entry will also be deleted. The absence of a temporary File for a given key is assumed
    * to mean that either no entry exists, or the entry is committed and may be read.
    *
-   * @throws IllegalStateException If this method wasn't preceded by a call to {@link
-   *     #beginPut(String)} for the given key.
    */
   public void commitPut(String key, File temp) {
     long startTime = getLogTime();

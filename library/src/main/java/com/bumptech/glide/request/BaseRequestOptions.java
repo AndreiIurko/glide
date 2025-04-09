@@ -655,7 +655,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
   }
 
   /**
-   * Disables the use of {@link android.graphics.Bitmap.Config#HARDWARE} in {@link Downsampler} to
+   * Disables the use of  in {@link Downsampler} to
    * avoid errors caused by inspecting Bitmap pixels, drawing with hardware support disabled,
    * drawing to {@link android.graphics.Canvas}s backed by {@link Bitmap}s etc.
    *
@@ -664,11 +664,9 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
    * Downsampler#ALLOW_HARDWARE_CONFIG}, Glide will set the value per request based on whether or
    * not a {@link Transformation} is applied and if one is, the type of {@link Transformation}
    * applied. Built in transformations like {@link FitCenter} and {@link
-   * com.bumptech.glide.load.resource.bitmap.DownsampleStrategy.CenterOutside} can safely use {@link
-   * android.graphics.Bitmap.Config#HARDWARE} because they can be entirely replaced by scaling
+   * com.bumptech.glide.load.resource.bitmap.DownsampleStrategy.CenterOutside} can safely use  because they can be entirely replaced by scaling
    * within {@link Downsampler}. {@link Transformation}s like {@link #circleCrop()} that can't be
-   * replicated by {@link Downsampler} cannot use {@link Bitmap.Config#HARDWARE} because {@link
-   * android.graphics.Bitmap.Config#HARDWARE} cannot be drawn to {@link android.graphics.Canvas}s,
+   * replicated by {@link Downsampler} cannot use  because  cannot be drawn to {@link android.graphics.Canvas}s,
    * which is required by most {@link Transformation}s.
    */
   @NonNull
@@ -1117,81 +1115,80 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
     if (isAutoCloneEnabled) {
       return clone().apply(o);
     }
-    BaseRequestOptions<?> other = o;
 
-    if (isSet(other.fields, SIZE_MULTIPLIER)) {
-      sizeMultiplier = other.sizeMultiplier;
+    if (isSet(o.fields, SIZE_MULTIPLIER)) {
+      sizeMultiplier = o.sizeMultiplier;
     }
-    if (isSet(other.fields, USE_UNLIMITED_SOURCE_GENERATORS_POOL)) {
-      useUnlimitedSourceGeneratorsPool = other.useUnlimitedSourceGeneratorsPool;
+    if (isSet(o.fields, USE_UNLIMITED_SOURCE_GENERATORS_POOL)) {
+      useUnlimitedSourceGeneratorsPool = o.useUnlimitedSourceGeneratorsPool;
     }
-    if (isSet(other.fields, USE_ANIMATION_POOL)) {
-      useAnimationPool = other.useAnimationPool;
+    if (isSet(o.fields, USE_ANIMATION_POOL)) {
+      useAnimationPool = o.useAnimationPool;
     }
-    if (isSet(other.fields, DISK_CACHE_STRATEGY)) {
-      diskCacheStrategy = other.diskCacheStrategy;
+    if (isSet(o.fields, DISK_CACHE_STRATEGY)) {
+      diskCacheStrategy = o.diskCacheStrategy;
     }
-    if (isSet(other.fields, PRIORITY)) {
-      priority = other.priority;
+    if (isSet(o.fields, PRIORITY)) {
+      priority = o.priority;
     }
-    if (isSet(other.fields, ERROR_PLACEHOLDER)) {
-      errorPlaceholder = other.errorPlaceholder;
+    if (isSet(o.fields, ERROR_PLACEHOLDER)) {
+      errorPlaceholder = o.errorPlaceholder;
       errorId = 0;
       fields &= ~ERROR_ID;
     }
-    if (isSet(other.fields, ERROR_ID)) {
-      errorId = other.errorId;
+    if (isSet(o.fields, ERROR_ID)) {
+      errorId = o.errorId;
       errorPlaceholder = null;
       fields &= ~ERROR_PLACEHOLDER;
     }
-    if (isSet(other.fields, PLACEHOLDER)) {
-      placeholderDrawable = other.placeholderDrawable;
+    if (isSet(o.fields, PLACEHOLDER)) {
+      placeholderDrawable = o.placeholderDrawable;
       placeholderId = 0;
       fields &= ~PLACEHOLDER_ID;
     }
-    if (isSet(other.fields, PLACEHOLDER_ID)) {
-      placeholderId = other.placeholderId;
+    if (isSet(o.fields, PLACEHOLDER_ID)) {
+      placeholderId = o.placeholderId;
       placeholderDrawable = null;
       fields &= ~PLACEHOLDER;
     }
-    if (isSet(other.fields, IS_CACHEABLE)) {
-      isCacheable = other.isCacheable;
+    if (isSet(o.fields, IS_CACHEABLE)) {
+      isCacheable = o.isCacheable;
     }
-    if (isSet(other.fields, OVERRIDE)) {
-      overrideWidth = other.overrideWidth;
-      overrideHeight = other.overrideHeight;
+    if (isSet(o.fields, OVERRIDE)) {
+      overrideWidth = o.overrideWidth;
+      overrideHeight = o.overrideHeight;
     }
-    if (isSet(other.fields, SIGNATURE)) {
-      signature = other.signature;
+    if (isSet(o.fields, SIGNATURE)) {
+      signature = o.signature;
     }
-    if (isSet(other.fields, RESOURCE_CLASS)) {
-      resourceClass = other.resourceClass;
+    if (isSet(o.fields, RESOURCE_CLASS)) {
+      resourceClass = o.resourceClass;
     }
-    if (isSet(other.fields, FALLBACK)) {
-      fallbackDrawable = other.fallbackDrawable;
+    if (isSet(o.fields, FALLBACK)) {
+      fallbackDrawable = o.fallbackDrawable;
       fallbackId = 0;
       fields &= ~FALLBACK_ID;
     }
-    if (isSet(other.fields, FALLBACK_ID)) {
-      fallbackId = other.fallbackId;
+    if (isSet(o.fields, FALLBACK_ID)) {
+      fallbackId = o.fallbackId;
       fallbackDrawable = null;
       fields &= ~FALLBACK;
     }
-    if (isSet(other.fields, THEME)) {
-      theme = other.theme;
+    if (isSet(o.fields, THEME)) {
+      theme = o.theme;
     }
-    if (isSet(other.fields, TRANSFORMATION_ALLOWED)) {
-      isTransformationAllowed = other.isTransformationAllowed;
+    if (isSet(o.fields, TRANSFORMATION_ALLOWED)) {
+      isTransformationAllowed = o.isTransformationAllowed;
     }
-    if (isSet(other.fields, TRANSFORMATION_REQUIRED)) {
-      isTransformationRequired = other.isTransformationRequired;
+    if (isSet(o.fields, TRANSFORMATION_REQUIRED)) {
+      isTransformationRequired = o.isTransformationRequired;
     }
-    if (isSet(other.fields, TRANSFORMATION)) {
-      transformations.putAll(other.transformations);
-      isScaleOnlyOrNoTransform = other.isScaleOnlyOrNoTransform;
+    if (isSet(o.fields, TRANSFORMATION)) {
+      transformations.putAll(o.transformations);
+      isScaleOnlyOrNoTransform = o.isScaleOnlyOrNoTransform;
     }
-    if (isSet(other.fields, ONLY_RETRIEVE_FROM_CACHE)) {
-      onlyRetrieveFromCache = other.onlyRetrieveFromCache;
+    if (isSet(o.fields, ONLY_RETRIEVE_FROM_CACHE)) {
+      onlyRetrieveFromCache = o.onlyRetrieveFromCache;
     }
 
     // Applying options with dontTransform() is expected to clear our transformations.
@@ -1203,8 +1200,8 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
       isScaleOnlyOrNoTransform = true;
     }
 
-    fields |= other.fields;
-    options.putAll(other.options);
+    fields |= o.fields;
+    options.putAll(o.options);
 
     return selfOrThrowIfLocked();
   }

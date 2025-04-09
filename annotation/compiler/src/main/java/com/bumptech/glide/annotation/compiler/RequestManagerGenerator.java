@@ -61,7 +61,7 @@ final class RequestManagerGenerator {
 
   private static final String GENERATED_REQUEST_MANAGER_SIMPLE_NAME = "GlideRequests";
 
-  private ProcessingEnvironment processingEnv;
+  private final ProcessingEnvironment processingEnv;
   private final ProcessorUtil processorUtil;
   private final ClassName requestManagerClassName;
   private final TypeElement lifecycleType;

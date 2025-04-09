@@ -189,7 +189,6 @@ final class ChromiumRequestSerializer {
     private Priority priority;
     private long startTime;
     private UrlRequest request;
-    private long endTimeMs;
     private long responseStartTimeMs;
     private volatile boolean isCancelled;
     private BufferQueue.Builder builder;
@@ -308,7 +307,7 @@ final class ChromiumRequestSerializer {
       Exception exception = getExceptionIfFailed(info, e, wasCancelled);
       boolean isSuccess = exception == null && !wasCancelled;
 
-      endTimeMs = System.currentTimeMillis();
+      long endTimeMs = System.currentTimeMillis();
 
       maybeLogResult(isSuccess, exception, wasCancelled, buffer);
       if (isSuccess) {

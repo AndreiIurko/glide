@@ -12,14 +12,13 @@ import java.security.MessageDigest;
  * {@link #updateDiskCacheKey(java.security.MessageDigest)}} to identify the transformation in disk
  * caches.
  *
- * <p>Using the fully qualified class name as a static final {@link String} (not {@link
- * Class#getName()} to avoid proguard obfuscation) is an easy way to implement {@link
+ * <p>Using the fully qualified class name as a static final {@link String} (not  to avoid proguard obfuscation) is an easy way to implement {@link
  * #updateDiskCacheKey(java.security.MessageDigest)}} correctly. If additional arguments are
  * required they can be passed in to the constructor of the {@code Transformation} and then used to
  * update the {@link java.security.MessageDigest} passed in to {@link
  * #updateDiskCacheKey(MessageDigest)}. If arguments are primitive types, they can typically easily
  * be serialized using {@link java.nio.ByteBuffer}. {@link String} types can be serialized with
- * {@link String#getBytes(Charset)} using the constant {@link #CHARSET}.
+ *  using the constant {@link #CHARSET}.
  *
  * <p>Implementations <em>must</em> implement {@link #equals(Object)} and {@link #hashCode()} for
  * memory caching to work correctly.

@@ -36,7 +36,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z>
 
   /**
    * Returns the current {@link android.graphics.drawable.Drawable} being displayed in the view
-   * using {@link android.widget.ImageView#getDrawable()}.
+   * using .
    */
   @Override
   @Nullable
@@ -45,8 +45,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z>
   }
 
   /**
-   * Sets the given {@link android.graphics.drawable.Drawable} on the view using {@link
-   * android.widget.ImageView#setImageDrawable(android.graphics.drawable.Drawable)}.
+   * Sets the given {@link android.graphics.drawable.Drawable} on the view using .
    *
    * @param drawable {@inheritDoc}
    */
@@ -56,8 +55,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z>
   }
 
   /**
-   * Sets the given {@link android.graphics.drawable.Drawable} on the view using {@link
-   * android.widget.ImageView#setImageDrawable(android.graphics.drawable.Drawable)}.
+   * Sets the given {@link android.graphics.drawable.Drawable} on the view using .
    *
    * @param placeholder {@inheritDoc}
    */
@@ -69,8 +67,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z>
   }
 
   /**
-   * Sets the given {@link android.graphics.drawable.Drawable} on the view using {@link
-   * android.widget.ImageView#setImageDrawable(android.graphics.drawable.Drawable)}.
+   * Sets the given {@link android.graphics.drawable.Drawable} on the view using .
    *
    * @param errorDrawable {@inheritDoc}
    */
@@ -82,8 +79,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z>
   }
 
   /**
-   * Sets the given {@link android.graphics.drawable.Drawable} on the view using {@link
-   * android.widget.ImageView#setImageDrawable(android.graphics.drawable.Drawable)}.
+   * Sets the given {@link android.graphics.drawable.Drawable} on the view using .
    *
    * @param placeholder {@inheritDoc}
    */

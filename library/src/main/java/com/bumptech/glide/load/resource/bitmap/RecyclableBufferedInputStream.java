@@ -73,7 +73,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
   /**
    * Returns an estimated number of bytes that can be read or skipped without blocking for more
    * input. This method returns the number of bytes available in the buffer plus those available in
-   * the source stream, but see {@link InputStream#available} for important caveats.
+   * the source stream, but see  for important caveats.
    *
    * @return the estimated number of bytes available
    * @throws IOException if this stream is closed or an error occurs
@@ -158,11 +158,11 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
         newLength = marklimit;
       }
       byte[] newbuf = byteArrayPool.get(newLength, byte[].class);
-      System.arraycopy(localBuf, 0, newbuf, 0, localBuf.length);
+      System.arraycopy(localBuf, 0, null, 0, localBuf.length);
       byte[] oldbuf = localBuf;
       // Reassign buf, which will invalidate any local references
       // FIXME: what if buf was null?
-      localBuf = buf = newbuf;
+      localBuf = buf = null;
       byteArrayPool.put(oldbuf);
     } else if (markpos > 0) {
       System.arraycopy(localBuf, markpos, localBuf, 0, localBuf.length - markpos);
@@ -256,8 +256,6 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
    *
    * @param buffer the byte array in which to store the bytes read.
    * @return the number of bytes actually read or -1 if end of stream.
-   * @throws IndexOutOfBoundsException if {@code offset < 0} or {@code byteCount < 0}, or if {@code
-   *     offset + byteCount} is greater than the size of {@code buffer}.
    * @throws IOException if the stream is already closed or another IOException occurs.
    */
   @Override
@@ -280,7 +278,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     int required;
     if (pos < count) {
       // There are bytes available in the buffer.
-      int copylength = count - pos >= byteCount ? byteCount : count - pos;
+      int copylength = java.lang.Math.min(count - pos, byteCount);
       System.arraycopy(localBuf, pos, buffer, offset, copylength);
       pos += copylength;
       if (copylength == byteCount || localIn.available() == 0) {
@@ -313,7 +311,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
           }
         }
 
-        read = count - pos >= required ? required : count - pos;
+        read = java.lang.Math.min(count - pos, required);
         System.arraycopy(localBuf, pos, buffer, offset, read);
         pos += read;
       }

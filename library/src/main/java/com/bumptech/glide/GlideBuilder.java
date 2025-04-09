@@ -329,15 +329,13 @@ public final class GlideBuilder {
   /**
    * Sets a log level constant from those in {@link Log} to indicate the desired log verbosity.
    *
-   * <p>The level must be one of {@link Log#VERBOSE}, {@link Log#DEBUG}, {@link Log#INFO}, {@link
-   * Log#WARN}, or {@link Log#ERROR}.
+   * <p>The level must be one of , , , , or .
    *
-   * <p>{@link Log#VERBOSE} means one or more lines will be logged per request, including timing
-   * logs and failures. {@link Log#DEBUG} means at most one line will be logged per successful
+   * <p> means one or more lines will be logged per request, including timing
+   * logs and failures.  means at most one line will be logged per successful
    * request, including timing logs, although many lines may be logged for failures including
-   * multiple complete stack traces. {@link Log#INFO} means failed loads will be logged including
-   * multiple complete stack traces, but successful loads will not be logged at all. {@link
-   * Log#WARN} means only summaries of failed loads will be logged. {@link Log#ERROR} means only
+   * multiple complete stack traces.  means failed loads will be logged including
+   * multiple complete stack traces, but successful loads will not be logged at all.  means only summaries of failed loads will be logged.  means only
    * exceptional cases will be logged.
    *
    * <p>All logs will be logged using the 'Glide' tag.
@@ -387,7 +385,7 @@ public final class GlideBuilder {
    * collect resources more quickly, but will lead to unexpected memory cache misses if callers load
    * resources into {@link com.bumptech.glide.request.target.Target}s but never clear them.
    *
-   * <p>If you set this method to {@code true} you <em>must not</em> call {@link Bitmap#recycle()}
+   * <p>If you set this method to {@code true} you <em>must not</em> call
    * or mutate any Bitmaps returned by Glide. If this method is set to {@code false}, recycling or
    * mutating Bitmaps is inefficient but safe as long as you do not clear the corresponding {@link
    * com.bumptech.glide.request.target.Target} used to load the {@link Bitmap}. However, if you set
@@ -399,9 +397,9 @@ public final class GlideBuilder {
    * com.bumptech.glide.request.target.Target}s when you're done with the corresponding resource.
    * Clearing {@link com.bumptech.glide.request.target.Target}s allows Glide to maximize resource
    * re-use, minimize memory overhead and minimize unexpected behavior resulting from edge cases. If
-   * you use {@link RequestManager#clear(Target)}, calling {@link Bitmap#recycle()} or mutating
+   * you use {@link RequestManager#clear(Target)}, calling  or mutating
    * {@link Bitmap}s is not only unsafe, it's also totally unnecessary and should be avoided. In all
-   * cases, prefer {@link RequestManager#clear(Target)} to {@link Bitmap#recycle()}.
+   * cases, prefer {@link RequestManager#clear(Target)} to .
    *
    * @return This builder.
    */
@@ -592,6 +590,7 @@ public final class GlideBuilder {
     RequestManagerRetriever requestManagerRetriever =
         new RequestManagerRetriever(requestManagerFactory);
 
+    assert defaultRequestListeners != null;
     return new Glide(
         context,
         engine,

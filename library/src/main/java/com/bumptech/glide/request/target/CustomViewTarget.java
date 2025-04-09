@@ -90,8 +90,8 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
    * size an {@link View}.
    *
    * <p>By default, Glide will only wait for a pending layout pass if it's unable to resolve the
-   * size from the {@link LayoutParams} or valid non-zero values for {@link View#getWidth()} and
-   * {@link View#getHeight()}.
+   * size from the {@link LayoutParams} or valid non-zero values for  and
+   * .
    *
    * <p>Because calling this method forces Glide to wait for the layout pass to occur before
    * starting loads, setting this parameter to {@code true} can cause Glide to asynchronous load an
@@ -157,7 +157,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
    * cancelled and resources re-used in scrolling lists.
    *
    * <p>Unlike {@link ViewTarget}, it is <b>not</b> necessary to set a custom tag id if your app
-   * uses {@link View#setTag(Object)}. It is only necessary if loading several Glide resources into
+   * uses . It is only necessary if loading several Glide resources into
    * the same view, for example one foreground and one background view.
    *
    * @param tagId The android resource id to use.
@@ -179,8 +179,8 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
   }
 
   /**
-   * Determines the size of the view by first checking {@link android.view.View#getWidth()} and
-   * {@link android.view.View#getHeight()}. If one or both are zero, it then checks the view's
+   * Determines the size of the view by first checking  and
+   * . If one or both are zero, it then checks the view's
    * {@link LayoutParams}. If one or both of the params width and height are less than or equal to
    * zero, it then adds an {@link android.view.ViewTreeObserver.OnPreDrawListener} which waits until
    * the view has been measured before calling the callback with the view's drawn width and height.
@@ -214,7 +214,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
   }
 
   /**
-   * Stores the request using {@link View#setTag(Object)}.
+   * Stores the request using .
    *
    * @param request {@inheritDoc}
    */
@@ -223,7 +223,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     setTag(request);
   }
 
-  /** Returns any stored request using {@link android.view.View#getTag()}. */
+  /** Returns any stored request using . */
   @Override
   @Nullable
   public final Request getRequest() {

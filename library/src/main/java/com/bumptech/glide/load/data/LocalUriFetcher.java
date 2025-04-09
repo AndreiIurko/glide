@@ -27,8 +27,7 @@ public abstract class LocalUriFetcher<T> implements DataFetcher<T> {
    *
    * @param contentResolver Any {@link android.content.ContentResolver}.
    * @param uri A Uri pointing to a local asset. This load will fail if the uri isn't openable by
-   *     {@link ContentResolver#openInputStream(android.net.Uri)}
-   * @see ContentResolver#openInputStream(android.net.Uri)
+   *
    */
   // Public API.
   @SuppressWarnings("WeakerAccess")

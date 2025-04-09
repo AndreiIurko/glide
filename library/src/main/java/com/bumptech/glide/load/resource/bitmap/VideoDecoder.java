@@ -46,13 +46,13 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
    */
   public static final long DEFAULT_FRAME = -1;
 
-  /** Matches the behavior of {@link MediaMetadataRetriever#getFrameAtTime(long)}. */
+  /** Matches the behavior of . */
   @VisibleForTesting
   static final int DEFAULT_FRAME_OPTION = MediaMetadataRetriever.OPTION_CLOSEST_SYNC;
 
   /**
    * A long indicating the time position (in microseconds) of the target frame which will be
-   * retrieved. {@link android.media.MediaMetadataRetriever#getFrameAtTime(long)} is used to extract
+   * retrieved.  is used to extract
    * the video frame.
    *
    * <p>When retrieving the frame at the given time position, there is no guarantee that the data
@@ -86,7 +86,6 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
    * <p>This option will be ignored if {@link #TARGET_FRAME} is not set or is set to {@link
    * #DEFAULT_FRAME}.
    *
-   * @see MediaMetadataRetriever#getFrameAtTime(long, int)
    */
   // Public API.
   @SuppressWarnings("WeakerAccess")

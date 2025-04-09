@@ -106,7 +106,7 @@ public final class Util {
    * Returns the number of bytes required to store each pixel of a {@link Bitmap} with the given
    * {@code config}.
    *
-   * <p>Defaults to {@link Bitmap.Config#ARGB_8888} if {@code config} is {@code null}.
+   * <p>Defaults to  if {@code config} is {@code null}.
    */
   public static int getBytesPerPixel(@Nullable Bitmap.Config config) {
     // A bitmap by decoding a GIF has null "config" in certain environments.
@@ -225,7 +225,6 @@ public final class Util {
   /**
    * Null-safe equivalent of {@code a.equals(b)}.
    *
-   * @see java.util.Objects#equals
    */
   public static boolean bothNullOrEqual(@Nullable Object a, @Nullable Object b) {
     return a == null ? b == null : a.equals(b);
@@ -248,6 +247,7 @@ public final class Util {
     if (a == null) {
       return b == null;
     }
+    assert b != null;
     return a.isEquivalentTo(b);
   }
 
